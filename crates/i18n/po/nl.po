@@ -8135,7 +8135,7 @@ msgid "MailCraft carries the software below. The Rust libraries of its core are 
 msgstr "MailCraft bevat de onderstaande software. De Rust-bibliotheken van de kern staan met hun versies in de broncode-repository."
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesActions.kt
 msgid "MailCraft could not keep access to that folder."
 msgstr ""
 
@@ -15250,7 +15250,7 @@ msgid "Synchronization"
 msgstr "Synchronisatie"
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesActions.kt
 msgid "Syncing notes with Google Drive…"
 msgstr ""
 
@@ -16558,7 +16558,7 @@ msgid "The name the calendar gives itself"
 msgstr "De naam die de agenda zichzelf geeft"
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesActions.kt
 msgid "The note could not be opened."
 msgstr ""
 
