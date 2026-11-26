@@ -25728,3 +25728,4 @@ msgstr "−Wiersze"
 #, fuzzy
 #~ msgid "the mailbox has no calendar"
 #~ msgstr "skrzynka pocztowa nie ma kalendarza"
+

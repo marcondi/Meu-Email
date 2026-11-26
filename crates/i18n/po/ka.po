@@ -25497,3 +25497,4 @@ msgstr ""
 #, fuzzy
 #~ msgid "{not_sending_yet}: send this message from another account, or save it as a draft"
 #~ msgstr "{not_sending_yet}: ეს წერილი სხვა ანგარიშიდან გაგზავნეთ ან მონახაზად შეინახეთ"
+

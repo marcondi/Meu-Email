@@ -25704,3 +25704,4 @@ msgstr "−Righe"
 #~ msgid_plural "{n} messages will be deleted for good."
 #~ msgstr[0] "{n} messaggio verrà eliminato definitivamente."
 #~ msgstr[1] "{n} messaggi verranno eliminati definitivamente."
+

@@ -25568,3 +25568,4 @@ msgstr "−Sorok"
 #, fuzzy
 #~ msgid "This build has no application id to sign in with."
 #~ msgstr "A MailCraft ezen verziójában nincs alkalmazásazonosító a bejelentkezéshez."
+
