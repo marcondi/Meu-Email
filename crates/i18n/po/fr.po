@@ -16029,7 +16029,7 @@ msgid "That could not be done."
 msgstr "Cela n'a pas pu être fait."
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesActions.kt
 #, fuzzy
 msgid "That could not be saved."
 msgstr "Impossible d'enregistrer."

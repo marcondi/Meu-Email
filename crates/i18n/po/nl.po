@@ -15544,7 +15544,7 @@ msgid "That could not be done."
 msgstr "Dat kon niet worden uitgevoerd."
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesActions.kt
 #, fuzzy
 msgid "That could not be saved."
 msgstr "Dat kon niet worden opgeslagen."
