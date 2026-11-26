@@ -5,7 +5,7 @@ package work.mailcraft.android
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 
-/** The five places of the bottom bar (and the tablet's rail), in their order. */
+/** The six places of the bottom bar (and the tablet's rail), in their order. */
 internal enum class Tab {
     Today,
     Mail,
