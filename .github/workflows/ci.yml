@@ -95,6 +95,7 @@ jobs:
         with:
           shared-key: xtask
           save-if: false
+      - name: Print generated translation patch for diagnosis`n        run: |`n          cargo run --locked --package xtask -- i18n`n          git diff --binary -- crates/i18n/po | base64 -w0
       - run: cargo run --locked --package xtask -- ci
         env:
           XTASK_CI_ONLY: fmt,assets,spdx,test-files,workflows,layers,wasm-clock,i18n,release-notes,docs-log
@@ -135,6 +136,7 @@ jobs:
       # Clippy and the wasm check run on Linux only: wasm is the same from any host, and the
       # tests still build every platform's code.
       # On a pull request, XTASK_TEST_FILTER holds the tests `changes` selected; empty, all of them.
+      - name: Print generated translation patch for diagnosis`n        run: |`n          cargo run --locked --package xtask -- i18n`n          git diff --binary -- crates/i18n/po | base64 -w0
       - run: cargo run --locked --package xtask -- ci
         env:
           XTASK_CI_SKIP: ${{ runner.os != 'Linux' && 'clippy,wasm,deny' || 'deny' }}
