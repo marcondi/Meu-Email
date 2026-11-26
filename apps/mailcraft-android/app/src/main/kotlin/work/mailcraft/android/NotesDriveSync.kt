@@ -102,7 +102,7 @@ private fun appFolder(resolver: android.content.ContentResolver, tree: Uri): Str
     val found = rootChildren.firstOrNull { it.name == MAILCRAFT_FOLDER && it.mimeType == DIRECTORY_MIME_TYPE }
     if (found != null) return found.id
     if (rootChildren.size > MAX_SNAPSHOT_FILES * 4) return null
-    return DocumentsContract.createDocument(documentUri(tree, rootId), DIRECTORY_MIME_TYPE, MAILCRAFT_FOLDER)
+    return DocumentsContract.createDocument(resolver, documentUri(tree, rootId), DIRECTORY_MIME_TYPE, MAILCRAFT_FOLDER)
         ?.let { DocumentsContract.getDocumentId(it) }
 }
 
