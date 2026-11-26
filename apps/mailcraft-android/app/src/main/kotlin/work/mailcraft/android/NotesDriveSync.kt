@@ -37,7 +37,8 @@ internal fun rememberNoteFolder(context: Context, uri: Uri): Boolean = try {
     context.getSharedPreferences(DRIVE_PREFS, Context.MODE_PRIVATE)
         .edit()
         .putString(FOLDER_KEY, uri.toString())
-        .commit()
+        .apply()
+    true
 } catch (_: SecurityException) {
     false
 }
