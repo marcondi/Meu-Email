@@ -4,6 +4,7 @@ package work.mailcraft.android
 
 import android.content.Context
 import android.net.Uri
+import androidx.core.content.edit
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -35,9 +36,7 @@ internal fun rememberNoteFolder(context: Context, uri: Uri): Boolean = try {
         android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION
     context.contentResolver.takePersistableUriPermission(uri, flags)
     context.getSharedPreferences(DRIVE_PREFS, Context.MODE_PRIVATE)
-        .edit()
-        .putString(FOLDER_KEY, uri.toString())
-        .apply()
+        .edit { putString(FOLDER_KEY, uri.toString()) }
     true
 } catch (_: SecurityException) {
     false
