@@ -4,6 +4,7 @@ package work.mailcraft.android
 
 import android.content.Context
 import android.net.Uri
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -47,7 +48,8 @@ internal suspend fun syncDriveNotes(
     core: Core,
     context: Context,
     texts: Texts,
-): DriveSyncResult = withContext(Dispatchers.IO) {
+    dispatcher: CoroutineDispatcher = Dispatchers.IO,
+): DriveSyncResult = withContext(dispatcher) {
     val root = noteFolderUri(context)
         ?: return@withContext DriveSyncResult(texts.t("Choose a Google Drive folder to sync notes."), false)
     try {
@@ -71,11 +73,12 @@ internal suspend fun syncDriveNotes(
                 false,
             )
         mergeSnapshots(core, deviceId, snapshots)
-        publishSnapshot(core, resolver, root, folder, deviceId)
-            ?: return@withContext DriveSyncResult(
+        if (!publishSnapshot(core, resolver, root, folder, deviceId)) {
+            return@withContext DriveSyncResult(
                 texts.t("MailCraft notes use too much storage for one Drive snapshot."),
                 false,
             )
+        }
         cleanupOldSnapshots(resolver, root, folder, deviceId)
         DriveSyncResult(texts.t("Notes synced with Google Drive."), true)
     } catch (_: Exception) {

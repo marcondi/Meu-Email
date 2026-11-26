@@ -71,7 +71,11 @@ internal suspend fun loadNotes(
     }
 }
 
-internal suspend fun loadNote(core: Core, id: ULong): NoteDraft? = withContext(Dispatchers.Default) {
+internal suspend fun loadNote(
+    core: Core,
+    id: ULong,
+    dispatcher: CoroutineDispatcher = Dispatchers.Default,
+): NoteDraft? = withContext(dispatcher) {
     try {
         val response = JSONObject(core.execute("notes.get", jsonText(mapOf("id" to id))))
         NoteDraft(id, response.optString("body"), response.optBoolean("readOnly", true))
