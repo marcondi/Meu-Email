@@ -2309,7 +2309,7 @@ msgid "Available formats:"
 msgstr "Elérhető formátumok:"
 
 #. android, command label, interface, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AccountScreens.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Shell.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/view.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AccountScreens.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Shell.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/view.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
 #, fuzzy
 msgid "Back"
 msgstr "Vissza"
@@ -3181,6 +3181,11 @@ msgstr "Ellenőrzöm…"
 msgid "Choose Default Signature"
 msgstr "Az alapértelmezett aláírás kiválasztása"
 
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Choose Google Drive folder"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/notes_view.rs
 msgid "Choose Google Drive folder…"
@@ -3191,6 +3196,21 @@ msgstr ""
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
 msgstr "Válassza ki a Google-bejelentkezést, vagy válassza ki az alkalmazás jelszójának használatát."
+
+#. command label
+#: crates/ui-egui/src/lib.rs
+msgid "Choose Notes Sync Folder"
+msgstr ""
+
+#. ribbon
+#: crates/ui-egui/src/ribbon.rs
+msgid "Choose Sync Folder"
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Choose a Google Drive folder to sync notes."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/forms.rs
@@ -3348,7 +3368,7 @@ msgid "Clipboard"
 msgstr "Vágólap"
 
 #. android, interface, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/IncomingLayers.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/compose.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/find_replace.rs crates/ui-egui/src/folder_properties.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/import_pst.rs crates/ui-egui/src/meeting_dialogs.rs crates/ui-egui/src/meeting_dialogs/share.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/reminders.rs crates/ui-egui/src/report_problem.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/symbol.rs crates/ui-egui/src/sync_panel.rs crates/ui-egui/src/tasks_view.rs crates/ui-egui/src/view_source.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/IncomingLayers.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/compose.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/find_replace.rs crates/ui-egui/src/folder_properties.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/import_pst.rs crates/ui-egui/src/meeting_dialogs.rs crates/ui-egui/src/meeting_dialogs/share.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/reminders.rs crates/ui-egui/src/report_problem.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/symbol.rs crates/ui-egui/src/sync_panel.rs crates/ui-egui/src/tasks_view.rs crates/ui-egui/src/view_source.rs
 #, fuzzy
 msgid "Close"
 msgstr "Bezárás"
@@ -4221,7 +4241,7 @@ msgid "Delayed until {when}"
 msgstr "Késleltetve eddig: {when}"
 
 #. android, command label, interface, name, ribbon, ribbon location
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/junk.rs crates/engine/src/cmd/mail.rs crates/engine/src/cmd/people.rs crates/engine/src/cmd/tasks.rs crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/calendar_view.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/signatures.rs crates/ui-egui/src/swipe.rs crates/ui-egui/src/tasks_view.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/junk.rs crates/engine/src/cmd/mail.rs crates/engine/src/cmd/people.rs crates/engine/src/cmd/tasks.rs crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/calendar_view.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/signatures.rs crates/ui-egui/src/swipe.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "Delete"
 msgstr "Törlés"
@@ -4275,6 +4295,11 @@ msgstr "A megkeresések törlése a válaszadás után"
 #, fuzzy
 msgid "Delete My Copy"
 msgstr "A másolat törlése"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Delete Note"
+msgstr ""
 
 #. command label, interface, ribbon
 #: crates/engine/src/cmd/mail.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/ribbon.rs
@@ -5003,6 +5028,11 @@ msgstr "Esemény szerkesztése"
 #, fuzzy
 msgid "Edit Message"
 msgstr "Üzenet szerkesztése"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Edit Note"
+msgstr ""
 
 #. command label
 #: crates/engine/src/cmd/signature.rs
@@ -6409,6 +6439,16 @@ msgstr "Google alkalmazásazonosító"
 #, fuzzy
 msgid "Google Desktop application ID"
 msgstr "Google Desktop alkalmazásazonosító"
+
+#. ribbon
+#: crates/ui-egui/src/ribbon.rs
+msgid "Google Drive"
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Google Drive could not open the MailCraft notes folder."
+msgstr ""
 
 #. why a mail server couldn't be used
 #: crates/net/src/lib.rs
@@ -8124,7 +8164,7 @@ msgid "List {n}"
 msgstr "{n}. lista"
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarSpeech.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ReadingScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TasksScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TodayScreen.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarSpeech.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ReadingScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TasksScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TodayScreen.kt
 #, fuzzy
 msgid "Loading…"
 msgstr "Betöltés…"
@@ -8406,6 +8446,11 @@ msgid "MailCraft carries the software below. The Rust libraries of its core are 
 msgstr "A MailCraft az alábbi szoftvereket tartalmazza. A mag Rust-könyvtárai a verziószámukkal együtt a forráskód-tárolóban vannak felsorolva."
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "MailCraft could not keep access to that folder."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Accounts.kt
 #, fuzzy
 msgid "MailCraft couldn't open a browser for Microsoft's page."
@@ -8542,6 +8587,16 @@ msgstr "MailCraft szüksége van az engedély, hogy változtasson az automatikus
 #, fuzzy
 msgid "MailCraft needs your system browser to sign in. You can also use a Google app password."
 msgstr "A MailCraft-nak szüksége van a rendszerböngészőjére, hogy bejelentkezzen. A Google alkalmazás jelszót is használhatja."
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "MailCraft note snapshots use too much storage to sync at once."
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "MailCraft notes use too much storage for one Drive snapshot."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/updates.rs
@@ -8892,6 +8947,11 @@ msgstr "Kapcsolatok összeolvasztása"
 #, fuzzy
 msgid "Merge Duplicate Contacts"
 msgstr "A párhuzamos kapcsolatok összeolvasztása"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Merge Note Snapshots"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/merge_contacts.rs
@@ -9747,6 +9807,11 @@ msgstr "Új postafiók"
 msgid "New Meeting"
 msgstr "Új értekezlet"
 
+#. command label, ribbon
+#: crates/engine/src/cmd/notes.rs crates/ui-egui/src/ribbon.rs
+msgid "New Note"
+msgstr ""
+
 #. command label, interface
 #: crates/engine/src/cmd/tasks.rs crates/ui-egui/src/forms.rs
 #, fuzzy
@@ -9807,8 +9872,8 @@ msgstr "Új üzenet"
 msgid "New messages"
 msgstr "Új üzenetek"
 
-#. interface
-#: crates/ui-egui/src/notes_view.rs
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/notes_view.rs
 msgid "New note"
 msgstr ""
 
@@ -10206,6 +10271,11 @@ msgid "No notes yet"
 msgstr ""
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "No notes."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
 #, fuzzy
 msgid "No people found."
@@ -10589,11 +10659,26 @@ msgstr "Nem iratkozott le."
 msgid "Not verified"
 msgstr "Nem ellenőrzött"
 
-#. android, interface, ribbon location
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/notes.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/nav.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/tasks_view.rs
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Note"
+msgstr ""
+
+#. android, command label, interface, name, ribbon, ribbon location
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Navigation.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/notes.rs crates/engine/src/cmd/view.rs crates/engine/src/session.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/lib.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "Notes"
 msgstr "Megjegyzések"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Notes are saved on this device. Google Drive sync will be retried."
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Notes synced with Google Drive."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/approval.rs
@@ -12269,6 +12354,11 @@ msgstr "Olvasott / olvasatlan"
 msgid "Read Invitation"
 msgstr "Meghívó elolvasása"
 
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Read Note Snapshot"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/advanced_search.rs
 #, fuzzy
@@ -12292,6 +12382,11 @@ msgstr "Olvass {owner} bejelentkezésével, amíg megtartod: az illetőnek meg k
 #, fuzzy
 msgid "Read-only"
 msgstr "Csak olvasható"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Read-only import"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -13306,7 +13401,7 @@ msgid "Saturday"
 msgstr "szombat"
 
 #. android, interface
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsPages.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/signatures.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsPages.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/signatures.rs
 #, fuzzy
 msgid "Save"
 msgstr "Mentés"
@@ -13747,6 +13842,11 @@ msgstr "Keresés a levelekben"
 msgid "Search mail (try from:, has:attachment, is:unread)"
 msgstr "Keresés a levelekben (pl. from:, has:attachment, is:unread)"
 
+#. interface
+#: crates/ui-egui/src/chrome.rs
+msgid "Search notes"
+msgstr ""
+
 #. android, interface
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt crates/ui-egui/src/chrome.rs
 #, fuzzy
@@ -13866,6 +13966,11 @@ msgstr "Válasszon ki egy üzenetet először"
 #, fuzzy
 msgid "Select a message to read it."
 msgstr "Válasszon ki egy üzenetet az olvasáshoz."
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Select a note to read it."
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -15695,6 +15800,11 @@ msgstr "Szinkronizálás az Outlookkal: részben be"
 msgid "Synchronization"
 msgstr "Szinkronizálás"
 
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "Syncing notes with Google Drive…"
+msgstr ""
+
 #. name
 #: crates/model/src/rich.rs
 #, fuzzy
@@ -17012,10 +17122,20 @@ msgid "The name the calendar gives itself"
 msgstr "A név, amelyet a naptár magának ad"
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "The note could not be opened."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt
 #, fuzzy
 msgid "The notes are too long to edit here."
 msgstr "A jegyzetek túl hosszúak ahhoz, hogy itt szerkessze őket."
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Notes.kt
+msgid "The notes could not be read."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -17706,6 +17826,11 @@ msgstr "Téma"
 #, fuzzy
 msgid "Then run it over the mail already in {folder}"
 msgstr "Futtatás a(z) „{folder}” mappában lévő üzeneteken is"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "There are too many MailCraft note snapshots in this folder."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/data_removal.rs
@@ -19327,8 +19452,8 @@ msgstr "Leiratkozás…"
 msgid "Untitled"
 msgstr "Cím nélkül"
 
-#. interface
-#: crates/ui-egui/src/notes_view.rs
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/notes_view.rs
 msgid "Untitled note"
 msgstr ""
 
@@ -20661,6 +20786,11 @@ msgid "a contact's card keeps at most 32 keys"
 msgstr "a kapcsolati kártya legfeljebb 32 kulcsot tartalmaz"
 
 #. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "a deleted note cannot be edited"
+msgstr ""
+
+#. what a command says
 #: crates/model/src/mailbox_followup.rs
 #, fuzzy
 msgid "a draft can't have a reminder: send it first, or use Follow Up in the message itself"
@@ -20906,6 +21036,16 @@ msgstr "a fiók nem helyezhető saját maga elé"
 msgid "an event needs a title"
 msgstr "egy eseménynek címre van szüksége"
 
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "an imported PST note cannot be deleted here"
+msgstr ""
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "an imported PST note cannot be edited here"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
@@ -21001,6 +21141,11 @@ msgstr "kapcsolati probléma: {reason}"
 #, fuzzy
 msgid "contact"
 msgstr "érintés"
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "could not encode the note snapshot"
+msgstr ""
 
 #. why a mail server couldn't be used
 #: crates/net/src/lib.rs
@@ -22501,6 +22646,11 @@ msgstr "A nevet nem lehetett felnézni."
 #, fuzzy
 msgid "the network couldn't get there"
 msgstr "A csatorna nem tudott odaérni."
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "the note is gone"
+msgstr ""
 
 #. what a command says
 #: crates/model/src/mailbox.rs
@@ -24774,7 +24924,7 @@ msgstr[0] "{n} nem válaszolt"
 msgstr[1] "{n} nem válaszolt"
 
 #. interface
-#: crates/ui-egui/src/import_pst.rs
+#: crates/ui-egui/src/chrome.rs crates/ui-egui/src/import_pst.rs
 #, fuzzy
 msgid "{n} note"
 msgid_plural "{n} notes"

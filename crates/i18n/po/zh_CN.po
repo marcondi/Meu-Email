@@ -2306,7 +2306,7 @@ msgid "Available formats:"
 msgstr "可用格式："
 
 #. android, command label, interface, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AccountScreens.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Shell.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/view.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AccountScreens.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Shell.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/view.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
 #, fuzzy
 msgid "Back"
 msgstr "返回"
@@ -3180,6 +3180,11 @@ msgstr "正在检查…"
 msgid "Choose Default Signature"
 msgstr "选择默认签名"
 
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Choose Google Drive folder"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/notes_view.rs
 msgid "Choose Google Drive folder…"
@@ -3190,6 +3195,21 @@ msgstr ""
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
 msgstr "选择 Google 登录，或选择使用应用密码。"
+
+#. command label
+#: crates/ui-egui/src/lib.rs
+msgid "Choose Notes Sync Folder"
+msgstr ""
+
+#. ribbon
+#: crates/ui-egui/src/ribbon.rs
+msgid "Choose Sync Folder"
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Choose a Google Drive folder to sync notes."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/forms.rs
@@ -3347,7 +3367,7 @@ msgid "Clipboard"
 msgstr "剪贴板"
 
 #. android, interface, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/IncomingLayers.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/compose.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/find_replace.rs crates/ui-egui/src/folder_properties.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/import_pst.rs crates/ui-egui/src/meeting_dialogs.rs crates/ui-egui/src/meeting_dialogs/share.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/reminders.rs crates/ui-egui/src/report_problem.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/symbol.rs crates/ui-egui/src/sync_panel.rs crates/ui-egui/src/tasks_view.rs crates/ui-egui/src/view_source.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/IncomingLayers.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/compose.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/find_replace.rs crates/ui-egui/src/folder_properties.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/import_pst.rs crates/ui-egui/src/meeting_dialogs.rs crates/ui-egui/src/meeting_dialogs/share.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/reminders.rs crates/ui-egui/src/report_problem.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/symbol.rs crates/ui-egui/src/sync_panel.rs crates/ui-egui/src/tasks_view.rs crates/ui-egui/src/view_source.rs
 #, fuzzy
 msgid "Close"
 msgstr "关闭"
@@ -4224,7 +4244,7 @@ msgid "Delayed until {when}"
 msgstr "延迟至{when}"
 
 #. android, command label, interface, name, ribbon, ribbon location
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/junk.rs crates/engine/src/cmd/mail.rs crates/engine/src/cmd/people.rs crates/engine/src/cmd/tasks.rs crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/calendar_view.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/signatures.rs crates/ui-egui/src/swipe.rs crates/ui-egui/src/tasks_view.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/junk.rs crates/engine/src/cmd/mail.rs crates/engine/src/cmd/people.rs crates/engine/src/cmd/tasks.rs crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/calendar_view.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/signatures.rs crates/ui-egui/src/swipe.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "Delete"
 msgstr "删除"
@@ -4280,6 +4300,11 @@ msgstr "回复后删除会议请求"
 #, fuzzy
 msgid "Delete My Copy"
 msgstr "删除我的副本"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Delete Note"
+msgstr ""
 
 #. command label, interface, ribbon
 #: crates/engine/src/cmd/mail.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/ribbon.rs
@@ -5007,6 +5032,11 @@ msgstr "编辑事件"
 #, fuzzy
 msgid "Edit Message"
 msgstr "编辑邮件"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Edit Note"
+msgstr ""
 
 #. command label
 #: crates/engine/src/cmd/signature.rs
@@ -6410,6 +6440,16 @@ msgstr "Google 桌面应用程序 ID"
 #, fuzzy
 msgid "Google Desktop application ID"
 msgstr "Google 桌面应用程序 ID"
+
+#. ribbon
+#: crates/ui-egui/src/ribbon.rs
+msgid "Google Drive"
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Google Drive could not open the MailCraft notes folder."
+msgstr ""
 
 #. why a mail server couldn't be used
 #: crates/net/src/lib.rs
@@ -8123,7 +8163,7 @@ msgid "List {n}"
 msgstr "列表 {n}"
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarSpeech.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ReadingScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TasksScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TodayScreen.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarSpeech.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ReadingScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TasksScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TodayScreen.kt
 #, fuzzy
 msgid "Loading…"
 msgstr "正在加载…"
@@ -8405,6 +8445,11 @@ msgid "MailCraft carries the software below. The Rust libraries of its core are 
 msgstr "MailCraft 包含下列软件。其核心的 Rust 库及版本列在源代码仓库中。"
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "MailCraft could not keep access to that folder."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Accounts.kt
 #, fuzzy
 msgid "MailCraft couldn't open a browser for Microsoft's page."
@@ -8541,6 +8586,16 @@ msgstr "MailCraft 需要先获得您的许可才能更改自动回复：文件 �
 #, fuzzy
 msgid "MailCraft needs your system browser to sign in. You can also use a Google app password."
 msgstr "MailCraft 需要使用系统浏览器登录。您也可以使用 Google 应用密码。"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "MailCraft note snapshots use too much storage to sync at once."
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "MailCraft notes use too much storage for one Drive snapshot."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/updates.rs
@@ -8890,6 +8945,11 @@ msgstr "合并联系人"
 #, fuzzy
 msgid "Merge Duplicate Contacts"
 msgstr "合并重复联系人"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Merge Note Snapshots"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/merge_contacts.rs
@@ -9748,6 +9808,11 @@ msgstr "新建邮箱"
 msgid "New Meeting"
 msgstr "新建会议"
 
+#. command label, ribbon
+#: crates/engine/src/cmd/notes.rs crates/ui-egui/src/ribbon.rs
+msgid "New Note"
+msgstr ""
+
 #. command label, interface
 #: crates/engine/src/cmd/tasks.rs crates/ui-egui/src/forms.rs
 #, fuzzy
@@ -9808,8 +9873,8 @@ msgstr "新邮件"
 msgid "New messages"
 msgstr "新邮件"
 
-#. interface
-#: crates/ui-egui/src/notes_view.rs
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/notes_view.rs
 msgid "New note"
 msgstr ""
 
@@ -10205,6 +10270,11 @@ msgid "No notes yet"
 msgstr ""
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "No notes."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
 #, fuzzy
 msgid "No people found."
@@ -10588,11 +10658,26 @@ msgstr "未退订。"
 msgid "Not verified"
 msgstr "未验证"
 
-#. android, interface, ribbon location
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/notes.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/nav.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/tasks_view.rs
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Note"
+msgstr ""
+
+#. android, command label, interface, name, ribbon, ribbon location
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Navigation.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/notes.rs crates/engine/src/cmd/view.rs crates/engine/src/session.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/lib.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "Notes"
 msgstr "注释"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Notes are saved on this device. Google Drive sync will be retried."
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Notes synced with Google Drive."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/approval.rs
@@ -12266,6 +12351,11 @@ msgstr "已读/未读"
 msgid "Read Invitation"
 msgstr "阅读邀请"
 
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Read Note Snapshot"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/advanced_search.rs
 #, fuzzy
@@ -12289,6 +12379,11 @@ msgstr "使用 {owner} 的登录信息读取，直到您移除该日历：对方
 #, fuzzy
 msgid "Read-only"
 msgstr "只读"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Read-only import"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -13309,7 +13404,7 @@ msgid "Saturday"
 msgstr "星期六"
 
 #. android, interface
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsPages.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/signatures.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsPages.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/signatures.rs
 #, fuzzy
 msgid "Save"
 msgstr "保存"
@@ -13748,6 +13843,11 @@ msgstr "搜索邮件"
 msgid "Search mail (try from:, has:attachment, is:unread)"
 msgstr "搜索邮件（可尝试 from:、has:attachment、is:unread）"
 
+#. interface
+#: crates/ui-egui/src/chrome.rs
+msgid "Search notes"
+msgstr ""
+
 #. android, interface
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt crates/ui-egui/src/chrome.rs
 #, fuzzy
@@ -13867,6 +13967,11 @@ msgstr "请先选择一封邮件"
 #, fuzzy
 msgid "Select a message to read it."
 msgstr "选择一封邮件即可阅读。"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Select a note to read it."
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -15694,6 +15799,11 @@ msgstr "与 Outlook 同步：部分开启"
 msgid "Synchronization"
 msgstr "同步"
 
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "Syncing notes with Google Drive…"
+msgstr ""
+
 #. name
 #: crates/model/src/rich.rs
 #, fuzzy
@@ -17010,10 +17120,20 @@ msgid "The name the calendar gives itself"
 msgstr "日历给自己起的名称"
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "The note could not be opened."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt
 #, fuzzy
 msgid "The notes are too long to edit here."
 msgstr "备注太长，无法在此编辑。"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Notes.kt
+msgid "The notes could not be read."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -17704,6 +17824,11 @@ msgstr "主题"
 #, fuzzy
 msgid "Then run it over the mail already in {folder}"
 msgstr "然后对 {folder} 中已有的邮件运行该规则"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "There are too many MailCraft note snapshots in this folder."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/data_removal.rs
@@ -19320,8 +19445,8 @@ msgstr "正在退订…"
 msgid "Untitled"
 msgstr "无标题"
 
-#. interface
-#: crates/ui-egui/src/notes_view.rs
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/notes_view.rs
 msgid "Untitled note"
 msgstr ""
 
@@ -20657,6 +20782,11 @@ msgid "a contact's card keeps at most 32 keys"
 msgstr "联系人名片最多保留 32 个密钥"
 
 #. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "a deleted note cannot be edited"
+msgstr ""
+
+#. what a command says
 #: crates/model/src/mailbox_followup.rs
 #, fuzzy
 msgid "a draft can't have a reminder: send it first, or use Follow Up in the message itself"
@@ -20902,6 +21032,16 @@ msgstr "账户不能排在自身之前"
 msgid "an event needs a title"
 msgstr "日程需要标题"
 
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "an imported PST note cannot be deleted here"
+msgstr ""
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "an imported PST note cannot be edited here"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
@@ -20994,6 +21134,11 @@ msgstr "连接问题：{reason}"
 #, fuzzy
 msgid "contact"
 msgstr "联系人"
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "could not encode the note snapshot"
+msgstr ""
 
 #. why a mail server couldn't be used
 #: crates/net/src/lib.rs
@@ -22494,6 +22639,11 @@ msgstr "无法查询该名字"
 #, fuzzy
 msgid "the network couldn't get there"
 msgstr "无法通过网络连接"
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "the note is gone"
+msgstr ""
 
 #. what a command says
 #: crates/model/src/mailbox.rs
@@ -24683,7 +24833,7 @@ msgid_plural "{n} not answered"
 msgstr[0] "{n} 人未回复"
 
 #. interface
-#: crates/ui-egui/src/import_pst.rs
+#: crates/ui-egui/src/chrome.rs crates/ui-egui/src/import_pst.rs
 #, fuzzy
 msgid "{n} note"
 msgid_plural "{n} notes"

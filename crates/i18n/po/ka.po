@@ -1755,7 +1755,7 @@ msgid "Aqua"
 msgstr ""
 
 #. android, command label, interface, name, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt crates/engine/src/cmd/mail.rs crates/model/src/mailbox.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/ribbon.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt crates/engine/src/cmd/mail.rs crates/model/src/mailbox.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/swipe.rs
 #, fuzzy
 msgid "Archive"
 msgstr "არქივი"
@@ -2302,7 +2302,7 @@ msgid "Available formats:"
 msgstr "ხელმისაწვდომი ფორმატები:"
 
 #. android, command label, interface, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AccountScreens.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Shell.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/view.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AccountScreens.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Shell.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/view.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
 #, fuzzy
 msgid "Back"
 msgstr "უკან"
@@ -3172,6 +3172,11 @@ msgstr "შემოწმება…"
 msgid "Choose Default Signature"
 msgstr "ნაგულისხმევი ხელმოწერის არჩევა"
 
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Choose Google Drive folder"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/notes_view.rs
 msgid "Choose Google Drive folder…"
@@ -3182,6 +3187,21 @@ msgstr ""
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
 msgstr "აირჩიეთ Google-ით შესვლა ან მონიშნეთ „აპლიკაციის პაროლის გამოყენება“."
+
+#. command label
+#: crates/ui-egui/src/lib.rs
+msgid "Choose Notes Sync Folder"
+msgstr ""
+
+#. ribbon
+#: crates/ui-egui/src/ribbon.rs
+msgid "Choose Sync Folder"
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Choose a Google Drive folder to sync notes."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/forms.rs
@@ -3338,7 +3358,7 @@ msgid "Clipboard"
 msgstr "გაცვლის ბუფერი"
 
 #. android, interface, ribbon
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/IncomingLayers.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/compose.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/find_replace.rs crates/ui-egui/src/folder_properties.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/import_pst.rs crates/ui-egui/src/meeting_dialogs.rs crates/ui-egui/src/meeting_dialogs/share.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/reminders.rs crates/ui-egui/src/report_problem.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/symbol.rs crates/ui-egui/src/sync_panel.rs crates/ui-egui/src/tasks_view.rs crates/ui-egui/src/view_source.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/IncomingLayers.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/exchange.rs crates/ui-egui/src/compose.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/find_replace.rs crates/ui-egui/src/folder_properties.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/import_pst.rs crates/ui-egui/src/meeting_dialogs.rs crates/ui-egui/src/meeting_dialogs/share.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/reminders.rs crates/ui-egui/src/report_problem.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/symbol.rs crates/ui-egui/src/sync_panel.rs crates/ui-egui/src/tasks_view.rs crates/ui-egui/src/view_source.rs
 #, fuzzy
 msgid "Close"
 msgstr "დახურვა"
@@ -4212,7 +4232,7 @@ msgid "Delayed until {when}"
 msgstr "დაყოვნებულია, გაიგზავნება {when}"
 
 #. android, command label, interface, name, ribbon, ribbon location
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/junk.rs crates/engine/src/cmd/mail.rs crates/engine/src/cmd/people.rs crates/engine/src/cmd/tasks.rs crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/calendar_view.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/signatures.rs crates/ui-egui/src/tasks_view.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/junk.rs crates/engine/src/cmd/mail.rs crates/engine/src/cmd/people.rs crates/engine/src/cmd/tasks.rs crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/calendar_view.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/signatures.rs crates/ui-egui/src/swipe.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "Delete"
 msgstr "წაშლა"
@@ -4268,6 +4288,11 @@ msgstr "შეხვედრის მოთხოვნების წაშ�
 #, fuzzy
 msgid "Delete My Copy"
 msgstr "ჩემი ასლის წაშლა"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Delete Note"
+msgstr ""
 
 #. command label, interface, ribbon
 #: crates/engine/src/cmd/mail.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/ribbon.rs
@@ -4998,6 +5023,11 @@ msgid "Edit Message"
 msgstr "წერილის რედაქტირება"
 
 #. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Edit Note"
+msgstr ""
+
+#. command label
 #: crates/engine/src/cmd/signature.rs
 #, fuzzy
 msgid "Edit Signature"
@@ -5700,8 +5730,8 @@ msgstr "სახელი"
 msgid "First save Google's standard IMAP and SMTP settings and a matching email user name before switching sign-in methods."
 msgstr "შესვლის მეთოდის შეცვლამდე ჯერ შეინახეთ Google-ის სტანდარტული IMAP და SMTP პარამეტრები და შესაბამისი ელფოსტის მომხმარებლის სახელი."
 
-#. android, name
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailRowView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt crates/ui-egui/src/forms.rs
+#. android, interface, name
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListModel.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailRowView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt crates/ui-egui/src/forms.rs crates/ui-egui/src/swipe.rs
 #, fuzzy
 msgid "Flag"
 msgstr "დროშა"
@@ -6406,6 +6436,16 @@ msgstr "Google-ის სამაგიდო აპლიკაციის ID
 #, fuzzy
 msgid "Google Desktop application ID"
 msgstr "Google-ის სამაგიდო აპლიკაციის ID"
+
+#. ribbon
+#: crates/ui-egui/src/ribbon.rs
+msgid "Google Drive"
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Google Drive could not open the MailCraft notes folder."
+msgstr ""
 
 #. why a mail server couldn't be used
 #: crates/net/src/lib.rs
@@ -8110,7 +8150,7 @@ msgid "List {n}"
 msgstr "სია {n}"
 
 #. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarSpeech.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ReadingScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TasksScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TodayScreen.kt
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/AttachmentsView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarSpeech.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailListScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ReadingScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TasksScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TodayScreen.kt
 #, fuzzy
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
@@ -8392,6 +8432,11 @@ msgid "MailCraft carries the software below. The Rust libraries of its core are 
 msgstr "MailCraft შეიცავს ქვემოთ ჩამოთვლილ პროგრამებს. მისი ბირთვის Rust ბიბლიოთეკები ვერსიებით ჩამოთვლილია წყაროს რეპოზიტორიაში."
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "MailCraft could not keep access to that folder."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Accounts.kt
 #, fuzzy
 msgid "MailCraft couldn't open a browser for Microsoft's page."
@@ -8528,6 +8573,16 @@ msgstr "MailCraft-ს ჯერ თქვენი ნებართვა ს�
 #, fuzzy
 msgid "MailCraft needs your system browser to sign in. You can also use a Google app password."
 msgstr "შესასვლელად MailCraft-ს თქვენი სისტემური ბრაუზერი სჭირდება. ასევე შეგიძლიათ Google-ის აპლიკაციის პაროლი გამოიყენოთ."
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "MailCraft note snapshots use too much storage to sync at once."
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "MailCraft notes use too much storage for one Drive snapshot."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/updates.rs
@@ -8810,7 +8865,7 @@ msgid "Mark as Unread"
 msgstr "წაუკითხავად მონიშვნა"
 
 #. android, interface, name
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailRowView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/MailRowView.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/RowActionsSheet.kt crates/ui-egui/src/forms.rs crates/ui-egui/src/mail_view.rs crates/ui-egui/src/swipe.rs
 #, fuzzy
 msgid "Mark as read"
 msgstr "წაკითხულად მონიშვნა"
@@ -8878,6 +8933,11 @@ msgstr "კონტაქტების გაერთიანება"
 #, fuzzy
 msgid "Merge Duplicate Contacts"
 msgstr "დუბლირებული კონტაქტების გაერთიანება"
+
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Merge Note Snapshots"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/merge_contacts.rs
@@ -9732,6 +9792,11 @@ msgstr "ახალი საფოსტო ყუთი"
 msgid "New Meeting"
 msgstr "ახალი შეხვედრა"
 
+#. command label, ribbon
+#: crates/engine/src/cmd/notes.rs crates/ui-egui/src/ribbon.rs
+msgid "New Note"
+msgstr ""
+
 #. command label, interface
 #: crates/engine/src/cmd/tasks.rs crates/ui-egui/src/forms.rs
 #, fuzzy
@@ -9792,8 +9857,8 @@ msgstr "ახალი წერილი"
 msgid "New messages"
 msgstr "ახალი წერილები"
 
-#. interface
-#: crates/ui-egui/src/notes_view.rs
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/notes_view.rs
 msgid "New note"
 msgstr ""
 
@@ -10189,6 +10254,11 @@ msgid "No notes yet"
 msgstr ""
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "No notes."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
 #, fuzzy
 msgid "No people found."
@@ -10385,8 +10455,8 @@ msgstr "მისამართის მქონე არავინ არ
 msgid "Nobody, or more than one of your contacts, matches: {names}"
 msgstr "შესაბამისი არავინ ან თქვენი ერთზე მეტი კონტაქტია: {names}"
 
-#. android, interface, what a command says
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsSummaries.kt crates/engine/src/cmd/tasks/status.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/date_picker.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/tasks_view.rs
+#. android, interface, name, what a command says
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsSummaries.kt crates/engine/src/cmd/tasks/status.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/backstage.rs crates/ui-egui/src/date_picker.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/swipe.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "None"
 msgstr "არცერთი"
@@ -10570,11 +10640,26 @@ msgstr "გამოწერა არ გაუქმდა."
 msgid "Not verified"
 msgstr "არ არის დადასტურებული"
 
-#. android, interface, ribbon location
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/notes.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/nav.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/tasks_view.rs
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Note"
+msgstr ""
+
+#. android, command label, interface, name, ribbon, ribbon location
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Navigation.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/engine/src/cmd/notes.rs crates/engine/src/cmd/view.rs crates/engine/src/session.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/lib.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/people_view.rs crates/ui-egui/src/ribbon.rs crates/ui-egui/src/tasks_view.rs
 #, fuzzy
 msgid "Notes"
 msgstr "შენიშვნები"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Notes are saved on this device. Google Drive sync will be retried."
+msgstr ""
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "Notes synced with Google Drive."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/approval.rs
@@ -12242,6 +12327,11 @@ msgstr "წაკითხულად / წაუკითხავად მ�
 msgid "Read Invitation"
 msgstr "მოწვევის წაკითხვა"
 
+#. command label
+#: crates/engine/src/cmd/notes.rs
+msgid "Read Note Snapshot"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/advanced_search.rs
 #, fuzzy
@@ -12265,6 +12355,11 @@ msgstr "იკითხება ანგარიშით {owner}, სან�
 #, fuzzy
 msgid "Read-only"
 msgstr "მხოლოდ წასაკითხი"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Read-only import"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -13272,7 +13367,7 @@ msgid "Saturday"
 msgstr "შაბათი"
 
 #. android, interface
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsPages.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/signatures.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsPages.kt apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt crates/ui-egui/src/account_setup.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/signatures.rs
 #, fuzzy
 msgid "Save"
 msgstr "შენახვა"
@@ -13709,6 +13804,11 @@ msgstr "ფოსტაში ძიება"
 msgid "Search mail (try from:, has:attachment, is:unread)"
 msgstr "ფოსტაში ძიება (სცადეთ from:, has:attachment, is:unread)"
 
+#. interface
+#: crates/ui-egui/src/chrome.rs
+msgid "Search notes"
+msgstr ""
+
 #. android, interface
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt crates/ui-egui/src/chrome.rs
 #, fuzzy
@@ -13828,6 +13928,11 @@ msgstr "ჯერ მონიშნეთ წერილი"
 #, fuzzy
 msgid "Select a message to read it."
 msgstr "მონიშნეთ წერილი მის წასაკითხად."
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt
+msgid "Select a note to read it."
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -15541,20 +15646,30 @@ msgstr "კვი"
 msgid "Sunday"
 msgstr "კვირა"
 
+#. command label
+#: crates/ui-egui/src/lib.rs
+msgid "Swipe Action"
+msgstr ""
+
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Navigation.kt
 #, fuzzy
 msgid "Swipe actions"
 msgstr "გასრიალების მოქმედებები"
 
-#. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt
+#. interface
+#: crates/ui-egui/src/backstage.rs
+msgid "Swipe horizontally over a message to run its chosen action. On Windows, a horizontal mouse wheel can also trigger it."
+msgstr ""
+
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Swipe to the left"
 msgstr "მარცხნივ გასრიალება"
 
-#. android
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsScreen.kt crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Swipe to the right"
 msgstr "მარჯვნივ გასრიალება"
@@ -15636,6 +15751,11 @@ msgstr "Outlook-თან სინქრონიზაცია: ნაწი�
 #, fuzzy
 msgid "Synchronization"
 msgstr "სინქრონიზაცია"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "Syncing notes with Google Drive…"
+msgstr ""
 
 #. name
 #: crates/model/src/rich.rs
@@ -16954,10 +17074,20 @@ msgid "The name the calendar gives itself"
 msgstr "სახელი, რომელსაც კალენდარი თავს არქმევს"
 
 #. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Hosted.kt
+msgid "The note could not be opened."
+msgstr ""
+
+#. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/TaskEditorScreen.kt
 #, fuzzy
 msgid "The notes are too long to edit here."
 msgstr "შენიშვნები ზედმეტად გრძელია აქ რედაქტირებისთვის."
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Notes.kt
+msgid "The notes could not be read."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -17641,6 +17771,11 @@ msgstr "თემა"
 #, fuzzy
 msgid "Then run it over the mail already in {folder}"
 msgstr "შემდეგ გაშვება საქაღალდეში {folder} უკვე არსებულ ფოსტაზე"
+
+#. android
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesDriveSync.kt
+msgid "There are too many MailCraft note snapshots in this folder."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/data_removal.rs
@@ -19258,8 +19393,8 @@ msgstr "გამოწერის გაუქმება…"
 msgid "Untitled"
 msgstr "უსათაურო"
 
-#. interface
-#: crates/ui-egui/src/notes_view.rs
+#. android, interface
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/NotesScreen.kt crates/ui-egui/src/notes_view.rs
 msgid "Untitled note"
 msgstr ""
 
@@ -20593,6 +20728,11 @@ msgid "a contact's card keeps at most 32 keys"
 msgstr "კონტაქტის ბარათი მაქსიმუმ 32 გასაღებს ინახავს"
 
 #. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "a deleted note cannot be edited"
+msgstr ""
+
+#. what a command says
 #: crates/model/src/mailbox_followup.rs
 #, fuzzy
 msgid "a draft can't have a reminder: send it first, or use Follow Up in the message itself"
@@ -20838,6 +20978,16 @@ msgstr "ანგარიშს საკუთარი თავის წი
 msgid "an event needs a title"
 msgstr "ღონისძიებას სათაური სჭირდება"
 
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "an imported PST note cannot be deleted here"
+msgstr ""
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "an imported PST note cannot be edited here"
+msgstr ""
+
 #. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
@@ -20933,6 +21083,11 @@ msgstr "კავშირის პრობლემა: {reason}"
 #, fuzzy
 msgid "contact"
 msgstr "კონტაქტი"
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "could not encode the note snapshot"
+msgstr ""
 
 #. why a mail server couldn't be used
 #: crates/net/src/lib.rs
@@ -21589,6 +21744,11 @@ msgstr "ასეთი დანართი არ არსებობს"
 #, fuzzy
 msgid "no such paragraph"
 msgstr "ასეთი აბზაცი არ არსებობს"
+
+#. what a command says
+#: crates/model/src/rich.rs
+msgid "no such signature"
+msgstr ""
 
 #. what a command says
 #: crates/engine/src/cmd/tasks.rs crates/engine/src/cmd/tasks/status.rs
@@ -22426,6 +22586,11 @@ msgstr "სახელის მოძიება ვერ მოხერხ
 #, fuzzy
 msgid "the network couldn't get there"
 msgstr "ქსელმა იქამდე ვერ მიაღწია"
+
+#. what a command says
+#: crates/engine/src/cmd/notes.rs
+msgid "the note is gone"
+msgstr ""
 
 #. what a command says
 #: crates/model/src/mailbox.rs
@@ -24698,7 +24863,7 @@ msgstr[0] "არ უპასუხა: {n}"
 msgstr[1] "არ უპასუხა: {n}"
 
 #. interface
-#: crates/ui-egui/src/import_pst.rs
+#: crates/ui-egui/src/chrome.rs crates/ui-egui/src/import_pst.rs
 #, fuzzy
 msgid "{n} note"
 msgid_plural "{n} notes"
