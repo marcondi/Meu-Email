@@ -131,7 +131,7 @@ private fun parseSnapshot(content: ByteArray): JSONObject? = try {
     null
 }
 
-private fun mergeSnapshots(core: Core, deviceId: String, snapshots: List<JSONObject>) {
+private suspend fun mergeSnapshots(core: Core, deviceId: String, snapshots: List<JSONObject>) {
     for (snapshot in snapshots) {
         try {
             val request = JSONObject().put("deviceId", deviceId).put("snapshots", JSONArray().put(snapshot))
@@ -142,7 +142,7 @@ private fun mergeSnapshots(core: Core, deviceId: String, snapshots: List<JSONObj
     }
 }
 
-private fun publishSnapshot(
+private suspend fun publishSnapshot(
     core: Core,
     resolver: android.content.ContentResolver,
     tree: Uri,
