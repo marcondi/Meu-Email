@@ -40,6 +40,7 @@ pub fn show(app: &mut MailApp, ui: &mut Ui) {
     ui.separator();
     ui.columns(2, |columns| {
         columns[0].with_layout(Layout::top_down(Align::Min), |ui| {
+            crate::nav::module_foot(app, ui);
             ui.set_min_width(210.0);
             ui.heading(crate::tl!("Your notes"));
             egui::ScrollArea::vertical().show(ui, |ui| {

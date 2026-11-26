@@ -268,6 +268,7 @@ const SAFE: &[&str] = &[
     "view.calendar",
     "view.people",
     "view.tasks",
+    "view.notes",
     "view.readingPane",
     "view.gmailCategories",
     "view.folderPane",
@@ -379,6 +380,9 @@ const SAFE: &[&str] = &[
     "tasks.select",
     "tasks.get",
     "tasks.list",
+    // Notes the owner asked to be kept on this device; the Drive snapshots are host-managed below.
+    "notes.new",
+    "notes.edit",
     "notes.list",
     "notes.get",
     "journal.list",
@@ -483,6 +487,7 @@ const DELETE: &[&str] = &[
     // A merge removes the contacts merged into the kept one.
     "people.merge",
     "tasks.delete",
+    "notes.delete",
     "category.remove",
     "compose.discard",
     "ui.closeWindow",
@@ -618,6 +623,10 @@ const NEVER: &[&str] = &[
     "sync.applyEws",
     "sync.ewsFetchRequest",
     "sync.applyEwsFetch",
+    // These are the window's private Drive snapshot protocol, not agent-facing note commands.
+    "notes.syncSnapshot",
+    "notes.syncMerge",
+    "ui.notesSyncFolder",
     // Calendars and contacts on a server (#209), likewise.
     "sync.davRequest",
     "sync.applyDav",
@@ -2590,6 +2599,11 @@ mod tests {
             ("rules.list", Access::Owner(Class::Settings)),
             ("sync.apply", Access::Never),
             ("mail.flag", Access::Safe),
+            ("notes.new", Access::Safe),
+            ("notes.edit", Access::Safe),
+            ("notes.delete", Access::Owner(Class::Delete)),
+            ("notes.syncMerge", Access::Never),
+            ("ui.notesSyncFolder", Access::Never),
             ("nope.nothing", Access::Never),
         ] {
             assert_eq!(classify(&s, id, &json!({})), want, "{id}");
