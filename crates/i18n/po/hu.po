@@ -2975,6 +2975,11 @@ msgid "Changed: saved when you choose another signature or leave this page."
 msgstr "Az aláírás mentése automatikus, amikor másik aláírást választ, vagy elhagyja ezt az oldalt."
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Changes sync automatically when MailCraft is open and the Drive folder is available."
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "Change…"
@@ -3177,6 +3182,11 @@ msgid "Choose Default Signature"
 msgstr "Az alapértelmezett aláírás kiválasztása"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose Google Drive folder…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
@@ -3217,6 +3227,11 @@ msgstr "Az alapértelmezett aláírások kiválasztása"
 #, fuzzy
 msgid "Choose the kind of account"
 msgstr "Válassza ki a fiók típusát"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose the local folder that Google Drive syncs with your phone."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/report_problem.rs
@@ -3992,6 +4007,11 @@ msgstr "Üzenet létrehozása"
 msgid "Create Rule"
 msgstr "Szabály létrehozása"
 
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Create a note to start syncing it between your devices."
+msgstr ""
+
 #. command label
 #: crates/engine/src/cmd/signature.rs
 #, fuzzy
@@ -4309,6 +4329,11 @@ msgstr "Törlés, és az érintettek értesítése"
 #, fuzzy
 msgid "Delete meeting requests from the Inbox after responding"
 msgstr "A találati kérelmek törlése a válasz után"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Delete note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -4839,6 +4864,11 @@ msgstr "Piszkozatok"
 #, fuzzy
 msgid "Drafts you haven't sent go to your Drafts on the server. Folders and messages that are only on this computer stay on this computer, in a folder called \"Kept from {account}\". Your folders in Favorites stay there."
 msgstr "A Drafts nem küldött a Drafts a szerver. Mappa és üzenetek, amelyek csak ezen a számítógépen marad ezen a számítógépen, a mappában nevű \"Kept from {account}.\" A mappák a kedvencek marad ott."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Drive folder"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -7005,6 +7035,11 @@ msgstr "Fontos"
 #, fuzzy
 msgid "Imported"
 msgstr "Importált"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Imported PST notes are read-only."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/people_view.rs
@@ -9773,6 +9808,11 @@ msgid "New messages"
 msgstr "Új üzenetek"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "New note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "New rule"
@@ -10159,6 +10199,11 @@ msgstr "Nincs üzenet."
 #, fuzzy
 msgid "No new version is ready to install."
 msgstr "Nincs új verzió telepíthető."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "No notes yet"
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -13391,6 +13436,11 @@ msgstr "Mentés iCalendarként…"
 #, fuzzy
 msgid "Save draft"
 msgstr "Piszkozat mentése"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Save note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -19278,6 +19328,11 @@ msgid "Untitled"
 msgstr "Cím nélkül"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Untitled note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Up to 10 MB"
@@ -20008,6 +20063,11 @@ msgid "Write your message"
 msgstr "Írja ide az üzenetet"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Write your note…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/compose/editor.rs
 #, fuzzy
 msgid "Write your signature"
@@ -20306,6 +20366,11 @@ msgstr "A postafiókáját megjavították."
 #, fuzzy
 msgid "Your name"
 msgstr "Megjelenítendő név"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Your notes"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup/exchange.rs
@@ -25503,4 +25568,3 @@ msgstr "−Sorok"
 #, fuzzy
 #~ msgid "This build has no application id to sign in with."
 #~ msgstr "A MailCraft ezen verziójában nincs alkalmazásazonosító a bejelentkezéshez."
-

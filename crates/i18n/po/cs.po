@@ -2971,6 +2971,11 @@ msgid "Changed: saved when you choose another signature or leave this page."
 msgstr "Změněno: uloží se, když zvolíte jiný podpis nebo opustíte tuto stránku."
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Changes sync automatically when MailCraft is open and the Drive folder is available."
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "Change…"
@@ -3173,6 +3178,11 @@ msgid "Choose Default Signature"
 msgstr "Zvolit výchozí podpis"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose Google Drive folder…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
@@ -3213,6 +3223,11 @@ msgstr "Zvolit výchozí podpisy"
 #, fuzzy
 msgid "Choose the kind of account"
 msgstr "Zvolte druh účtu"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose the local folder that Google Drive syncs with your phone."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/report_problem.rs
@@ -3989,6 +4004,11 @@ msgstr "Vytvořit zprávu"
 msgid "Create Rule"
 msgstr "Vytvořit pravidlo"
 
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Create a note to start syncing it between your devices."
+msgstr ""
+
 #. command label
 #: crates/engine/src/cmd/signature.rs
 #, fuzzy
@@ -4311,6 +4331,11 @@ msgstr "Odstranit a informovat účastníky"
 #, fuzzy
 msgid "Delete meeting requests from the Inbox after responding"
 msgstr "Po odpovědi odstranit žádosti o schůzku z Doručené pošty"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Delete note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -4841,6 +4866,11 @@ msgstr "Koncepty"
 #, fuzzy
 msgid "Drafts you haven't sent go to your Drafts on the server. Folders and messages that are only on this computer stay on this computer, in a folder called \"Kept from {account}\". Your folders in Favorites stay there."
 msgstr "Koncepty, které jste neodeslali, se přesunou do Konceptů na serveru. Složky a zprávy, které jsou jen v tomto počítači, v něm zůstanou, ve složce s názvem „Ponecháno z {account}“. Vaše složky v Oblíbených tam zůstanou."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Drive folder"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -7027,6 +7057,11 @@ msgstr "Důležité"
 #, fuzzy
 msgid "Imported"
 msgstr "Importováno"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Imported PST notes are read-only."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/people_view.rs
@@ -9799,6 +9834,11 @@ msgid "New messages"
 msgstr "Nové zprávy"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "New note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "New rule"
@@ -10185,6 +10225,11 @@ msgstr "Žádné zprávy."
 #, fuzzy
 msgid "No new version is ready to install."
 msgstr "Žádná nová verze není připravena k instalaci."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "No notes yet"
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -13417,6 +13462,11 @@ msgstr "Uložit jako iCalendar…"
 #, fuzzy
 msgid "Save draft"
 msgstr "Uložit koncept"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Save note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -19314,6 +19364,11 @@ msgid "Untitled"
 msgstr "Bez názvu"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Untitled note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Up to 10 MB"
@@ -20052,6 +20107,11 @@ msgid "Write your message"
 msgstr "Napište zprávu"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Write your note…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/compose/editor.rs
 #, fuzzy
 msgid "Write your signature"
@@ -20350,6 +20410,11 @@ msgstr "Vaše poštovní schránka byla opravena"
 #, fuzzy
 msgid "Your name"
 msgstr "Vaše jméno"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Your notes"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup/exchange.rs
@@ -25608,4 +25673,3 @@ msgstr "−Řádky"
 #, fuzzy
 #~ msgid "Show a notification when a calendar reminder falls due. Off, none is shown; the reminders themselves stay in the calendar."
 #~ msgstr "Zobrazit oznámení, když nastane čas připomenutí v kalendáři. Pokud je vypnuto, nezobrazí se žádné; samotná připomenutí zůstávají v kalendáři."
-

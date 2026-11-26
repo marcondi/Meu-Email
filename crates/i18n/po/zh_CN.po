@@ -2974,6 +2974,11 @@ msgid "Changed: saved when you choose another signature or leave this page."
 msgstr "已更改：选择其他签名或离开此页面时会自动保存。"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Changes sync automatically when MailCraft is open and the Drive folder is available."
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "Change…"
@@ -3176,6 +3181,11 @@ msgid "Choose Default Signature"
 msgstr "选择默认签名"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose Google Drive folder…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
@@ -3216,6 +3226,11 @@ msgstr "选择默认签名"
 #, fuzzy
 msgid "Choose the kind of account"
 msgstr "选择账户类型"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose the local folder that Google Drive syncs with your phone."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/report_problem.rs
@@ -3993,6 +4008,11 @@ msgstr "创建邮件"
 msgid "Create Rule"
 msgstr "创建规则"
 
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Create a note to start syncing it between your devices."
+msgstr ""
+
 #. command label
 #: crates/engine/src/cmd/signature.rs
 #, fuzzy
@@ -4314,6 +4334,11 @@ msgstr "删除并通知相关人员"
 #, fuzzy
 msgid "Delete meeting requests from the Inbox after responding"
 msgstr "回复后从收件箱中删除会议请求"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Delete note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -4843,6 +4868,11 @@ msgstr "草稿"
 #, fuzzy
 msgid "Drafts you haven't sent go to your Drafts on the server. Folders and messages that are only on this computer stay on this computer, in a folder called \"Kept from {account}\". Your folders in Favorites stay there."
 msgstr "尚未发送的草稿会保存到服务器的“草稿”中。仅位于此计算机上的文件夹和邮件将保留在名为“Kept from {account}”的文件夹中。收藏夹中的文件夹会保留在原处。"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Drive folder"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -7005,6 +7035,11 @@ msgstr "重要"
 #, fuzzy
 msgid "Imported"
 msgstr "已导入"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Imported PST notes are read-only."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/people_view.rs
@@ -9774,6 +9809,11 @@ msgid "New messages"
 msgstr "新邮件"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "New note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "New rule"
@@ -10158,6 +10198,11 @@ msgstr "没有邮件。"
 #, fuzzy
 msgid "No new version is ready to install."
 msgstr "没有新版本可供安装。"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "No notes yet"
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -13394,6 +13439,11 @@ msgstr "另存为 iCalendar…"
 #, fuzzy
 msgid "Save draft"
 msgstr "保存草稿"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Save note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -19271,6 +19321,11 @@ msgid "Untitled"
 msgstr "无标题"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Untitled note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Up to 10 MB"
@@ -20004,6 +20059,11 @@ msgid "Write your message"
 msgstr "输入您的邮件"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Write your note…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/compose/editor.rs
 #, fuzzy
 msgid "Write your signature"
@@ -20302,6 +20362,11 @@ msgstr "您的邮箱已修复"
 #, fuzzy
 msgid "Your name"
 msgstr "您的姓名"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Your notes"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup/exchange.rs
@@ -25377,4 +25442,3 @@ msgstr "−行"
 #, fuzzy
 #~ msgid "The draft stays in Drafts. {why}"
 #~ msgstr "草稿保留在“草稿”中。{why}"
-

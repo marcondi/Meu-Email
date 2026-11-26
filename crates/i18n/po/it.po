@@ -2971,6 +2971,11 @@ msgid "Changed: saved when you choose another signature or leave this page."
 msgstr "Modificata: viene salvata quando si sceglie un'altra firma o si lascia questa pagina."
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Changes sync automatically when MailCraft is open and the Drive folder is available."
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "Change…"
@@ -3173,6 +3178,11 @@ msgid "Choose Default Signature"
 msgstr "Scegli firma predefinita"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose Google Drive folder…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 msgid "Choose Google sign-in, or select Use an app password instead."
 msgstr "Scegli l’accesso con Google oppure Usa invece una password per le app."
@@ -3212,6 +3222,11 @@ msgstr "Scegli firme predefinite"
 #, fuzzy
 msgid "Choose the kind of account"
 msgstr "Scegliere il tipo di account"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose the local folder that Google Drive syncs with your phone."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/report_problem.rs
@@ -3988,6 +4003,11 @@ msgstr "Crea messaggio"
 msgid "Create Rule"
 msgstr "Crea regola"
 
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Create a note to start syncing it between your devices."
+msgstr ""
+
 #. command label
 #: crates/engine/src/cmd/signature.rs
 #, fuzzy
@@ -4309,6 +4329,11 @@ msgstr "Elimina e avvisa le persone"
 #, fuzzy
 msgid "Delete meeting requests from the Inbox after responding"
 msgstr "Elimina le convocazioni di riunione da Posta in arrivo dopo aver risposto"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Delete note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -4839,6 +4864,11 @@ msgstr "Bozze"
 #, fuzzy
 msgid "Drafts you haven't sent go to your Drafts on the server. Folders and messages that are only on this computer stay on this computer, in a folder called \"Kept from {account}\". Your folders in Favorites stay there."
 msgstr "Le bozze non inviate vanno nella cartella Bozze sul server. Le cartelle e i messaggi presenti solo su questo computer restano su questo computer, in una cartella denominata «Kept from {account}». Le cartelle nei Preferiti restano lì."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Drive folder"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -7006,6 +7036,11 @@ msgstr "Importante"
 #, fuzzy
 msgid "Imported"
 msgstr "Importato"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Imported PST notes are read-only."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/people_view.rs
@@ -9776,6 +9811,11 @@ msgid "New messages"
 msgstr "Nuovi messaggi"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "New note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "New rule"
@@ -10161,6 +10201,11 @@ msgstr "Nessun messaggio."
 #, fuzzy
 msgid "No new version is ready to install."
 msgstr "Nessuna nuova versione pronta per l'installazione."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "No notes yet"
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -13387,6 +13432,11 @@ msgstr "Salva come iCalendar…"
 #, fuzzy
 msgid "Save draft"
 msgstr "Salva bozza"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Save note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -19262,6 +19312,11 @@ msgid "Untitled"
 msgstr "Senza titolo"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Untitled note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Up to 10 MB"
@@ -19990,6 +20045,11 @@ msgid "Write your message"
 msgstr "Scrivere il messaggio"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Write your note…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/compose/editor.rs
 #, fuzzy
 msgid "Write your signature"
@@ -20288,6 +20348,11 @@ msgstr "La cassetta postale è stata riparata"
 #, fuzzy
 msgid "Your name"
 msgstr "Il proprio nome"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Your notes"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup/exchange.rs
@@ -25639,4 +25704,3 @@ msgstr "−Righe"
 #~ msgid_plural "{n} messages will be deleted for good."
 #~ msgstr[0] "{n} messaggio verrà eliminato definitivamente."
 #~ msgstr[1] "{n} messaggi verranno eliminati definitivamente."
-

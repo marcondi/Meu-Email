@@ -2877,6 +2877,11 @@ msgid "Changed: saved when you choose another signature or leave this page."
 msgstr "Gewijzigd: wordt opgeslagen wanneer u een andere handtekening kiest of deze pagina verlaat."
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Changes sync automatically when MailCraft is open and the Drive folder is available."
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "Change…"
@@ -3069,6 +3074,11 @@ msgid "Choose Default Signature"
 msgstr "Standaardhandtekening kiezen"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose Google Drive folder…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Choose Google sign-in, or select Use an app password instead."
@@ -3109,6 +3119,11 @@ msgstr "Standaardhandtekeningen kiezen"
 #, fuzzy
 msgid "Choose the kind of account"
 msgstr "Het soort account kiezen"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Choose the local folder that Google Drive syncs with your phone."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/report_problem.rs
@@ -3848,6 +3863,11 @@ msgstr "Bericht maken"
 msgid "Create Rule"
 msgstr "Regel maken"
 
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Create a note to start syncing it between your devices."
+msgstr ""
+
 #. command label
 #: crates/engine/src/cmd/signature.rs
 msgid "Create from Details"
@@ -4151,6 +4171,11 @@ msgstr "Verwijderen en de personen op de hoogte stellen"
 #, fuzzy
 msgid "Delete meeting requests from the Inbox after responding"
 msgstr "Vergaderverzoeken na het reageren verwijderen uit Postvak IN"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Delete note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -4665,6 +4690,11 @@ msgstr "Concepten"
 #, fuzzy
 msgid "Drafts you haven't sent go to your Drafts on the server. Folders and messages that are only on this computer stay on this computer, in a folder called \"Kept from {account}\". Your folders in Favorites stay there."
 msgstr "Concepten die u nog niet hebt verzonden, gaan naar uw Concepten op de server. Mappen en berichten die alleen op deze computer staan, blijven op deze computer, in een map met de naam „Bewaard van {account}”. Uw mappen in Favorieten blijven daar."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Drive folder"
+msgstr ""
 
 #. ribbon
 #: crates/ui-egui/src/ribbon.rs
@@ -6732,6 +6762,11 @@ msgstr "Belangrijk"
 #, fuzzy
 msgid "Imported"
 msgstr "Geïmporteerd"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Imported PST notes are read-only."
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/people_view.rs
@@ -9402,6 +9437,11 @@ msgid "New messages"
 msgstr "Nieuwe berichten"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "New note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/forms.rs
 #, fuzzy
 msgid "New rule"
@@ -9782,6 +9822,11 @@ msgstr "Geen berichten."
 #, fuzzy
 msgid "No new version is ready to install."
 msgstr "Er staat geen nieuwe versie klaar om te installeren."
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "No notes yet"
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/PeopleScreen.kt
@@ -12905,6 +12950,11 @@ msgstr "Opslaan als iCalendar…"
 #, fuzzy
 msgid "Save draft"
 msgstr "Concept opslaan"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Save note"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup.rs
@@ -18687,6 +18737,11 @@ msgid "Untitled"
 msgstr "Naamloos"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Untitled note"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/backstage.rs
 #, fuzzy
 msgid "Up to 10 MB"
@@ -19400,6 +19455,11 @@ msgid "Write your message"
 msgstr "Schrijf uw bericht"
 
 #. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Write your note…"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/compose/editor.rs
 #, fuzzy
 msgid "Write your signature"
@@ -19695,6 +19755,11 @@ msgstr "Uw postvak is hersteld"
 #, fuzzy
 msgid "Your name"
 msgstr "Uw naam"
+
+#. interface
+#: crates/ui-egui/src/notes_view.rs
+msgid "Your notes"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/account_setup/exchange.rs
@@ -25050,4 +25115,3 @@ msgstr "−Regels"
 #, fuzzy
 #~ msgid "Scheduling Assistant"
 #~ msgstr "Planningassistent"
-
