@@ -81,11 +81,9 @@ pub fn new_sync_id() -> Result<String, NoteSnapshotError> {
     #[cfg(target_arch = "wasm32")]
     {
         use std::sync::atomic::{AtomicU64, Ordering};
-        use std::time::{SystemTime, UNIX_EPOCH};
-
         static NEXT_ID: AtomicU64 = AtomicU64::new(0);
-        let ticks = SystemTime::now().duration_since(UNIX_EPOCH).map_err(|_| NoteSnapshotError::IdentityUnavailable)?.as_nanos();
-        Ok(format!("{ticks:032x}{:016x}", NEXT_ID.fetch_add(1, Ordering::Relaxed)))
+        let seconds = mailcraft_time::now();
+        Ok(format!("{seconds:016x}{:016x}", NEXT_ID.fetch_add(1, Ordering::Relaxed)))
     }
 }
 
