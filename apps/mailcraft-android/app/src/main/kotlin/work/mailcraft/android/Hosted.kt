@@ -19,11 +19,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.net.toUri
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import uniffi.mailcraft_mobile.Core
-import uniffi.mailcraft_mobile.CoreException
 
 /** What the Today, People and Tasks tabs show, and what they do. */
 internal class Hosted(
@@ -91,163 +89,34 @@ private fun rememberNotes(
             if (result.synchronized) tick.intValue += 1
         }
     }
-    val isBusy = { busy }
-    val setEditor: (NoteDraft?) -> Unit = { editor = it }
-    val setNotice: (String?) -> Unit = { notice = it }
-    val mutate = noteMutationHandler(
-        scope,
-        core,
-        texts,
-        isBusy,
-        { busy = it },
-        setNotice,
-        { tick.intValue += 1; syncTick++ },
-    )
-    val actions = createNoteActions(
-        core,
-        texts,
-        context,
-        scope,
-        isBusy,
-        { editor },
-        setEditor,
-        setNotice,
-        mutate,
-        { syncStatus = it },
-        { syncTick++ },
-    )
+    val mutation = remember(scope, core, texts) {
+        NoteMutationContext(
+            scope = scope,
+            core = core,
+            texts = texts,
+            isBusy = { busy },
+            setBusy = { busy = it },
+            setNotice = { notice = it },
+            onMutated = { tick.intValue += 1; syncTick++ },
+        )
+    }
+    val noteActions = remember(core, texts, context, scope, mutation) {
+        NoteActionContext(
+            core = core,
+            texts = texts,
+            context = context,
+            scope = scope,
+            isBusy = { busy },
+            currentDraft = { editor },
+            setEditor = { editor = it },
+            setNotice = { notice = it },
+            mutate = noteMutationHandler(mutation),
+            setSyncStatus = { syncStatus = it },
+            retrySync = { syncTick++ },
+        )
+    }
+    val actions = createNoteActions(noteActions)
     return NotesData(state, editor, notice, busy, syncStatus) to actions
-}
-
-private typealias NoteMutation = (String, String, () -> Unit) -> Unit
-
-private fun noteMutationHandler(
-    scope: CoroutineScope,
-    core: Core,
-    texts: Texts,
-    isBusy: () -> Boolean,
-    setBusy: (Boolean) -> Unit,
-    setNotice: (String?) -> Unit,
-    onMutated: () -> Unit,
-): NoteMutation {
-    fun mutate(command: String, params: String, after: () -> Unit) {
-        if (isBusy()) return
-        setBusy(true)
-        scope.launch {
-            try {
-                core.execute(command, params)
-                setNotice(null)
-                after()
-                onMutated()
-            } catch (error: CoreException) {
-                setNotice(reasonOf(error) ?: texts.t("That could not be saved."))
-            } finally {
-                setBusy(false)
-            }
-        }
-    }
-    return ::mutate
-}
-
-private fun createNoteActions(
-    core: Core,
-    texts: Texts,
-    context: Context,
-    scope: CoroutineScope,
-    isBusy: () -> Boolean,
-    currentDraft: () -> NoteDraft?,
-    setEditor: (NoteDraft?) -> Unit,
-    setNotice: (String?) -> Unit,
-    mutate: NoteMutation,
-    setSyncStatus: (String) -> Unit,
-    retrySync: () -> Unit,
-): NotesActions = NotesActions(
-    onNew = newNoteAction(isBusy, setNotice, setEditor),
-    onOpen = openNoteAction(core, texts, scope, isBusy, setEditor, setNotice),
-    onText = editNoteTextAction(isBusy, currentDraft, setEditor),
-    onSave = saveNoteAction(context, isBusy, currentDraft, setEditor, mutate),
-    onDelete = deleteNoteAction(context, isBusy, currentDraft, setEditor, mutate),
-    onClose = { if (!isBusy()) setEditor(null) },
-    onChooseDriveFolder = chooseDriveFolderAction(context, texts, setSyncStatus, retrySync),
-)
-
-private fun newNoteAction(
-    isBusy: () -> Boolean,
-    setNotice: (String?) -> Unit,
-    setEditor: (NoteDraft?) -> Unit,
-): () -> Unit = {
-    if (!isBusy()) {
-        setNotice(null)
-        setEditor(NoteDraft(null, ""))
-    }
-}
-
-private fun openNoteAction(
-    core: Core,
-    texts: Texts,
-    scope: CoroutineScope,
-    isBusy: () -> Boolean,
-    setEditor: (NoteDraft?) -> Unit,
-    setNotice: (String?) -> Unit,
-): (NoteRow) -> Unit = { row ->
-    if (!isBusy()) {
-        scope.launch {
-            val draft = loadNote(core, row.id)
-            if (draft == null) setNotice(texts.t("The note could not be opened.")) else setEditor(draft)
-        }
-    }
-}
-
-private fun editNoteTextAction(
-    isBusy: () -> Boolean,
-    currentDraft: () -> NoteDraft?,
-    setEditor: (NoteDraft?) -> Unit,
-): (String) -> Unit = { text ->
-    if (!isBusy() && text.toByteArray(Charsets.UTF_8).size <= MAX_NOTE_BYTES) {
-        setEditor(currentDraft()?.copy(text = text))
-    }
-}
-
-private fun saveNoteAction(
-    context: Context,
-    isBusy: () -> Boolean,
-    currentDraft: () -> NoteDraft?,
-    setEditor: (NoteDraft?) -> Unit,
-    mutate: NoteMutation,
-): () -> Unit = {
-    val draft = currentDraft()
-    if (draft != null && !isBusy()) {
-        val params = mutableMapOf<String, Any>("text" to draft.text, "deviceId" to noteDeviceId(context))
-        draft.id?.let { params["id"] = it }
-        mutate(if (draft.id == null) "notes.new" else "notes.edit", jsonText(params)) { setEditor(null) }
-    }
-}
-
-private fun deleteNoteAction(
-    context: Context,
-    isBusy: () -> Boolean,
-    currentDraft: () -> NoteDraft?,
-    setEditor: (NoteDraft?) -> Unit,
-    mutate: NoteMutation,
-): () -> Unit = {
-    currentDraft()?.id?.takeIf { !isBusy() }?.let { id ->
-        val params = jsonText(mapOf("id" to id, "deviceId" to noteDeviceId(context)))
-        mutate("notes.delete", params) { setEditor(null) }
-    }
-}
-
-private fun chooseDriveFolderAction(
-    context: Context,
-    texts: Texts,
-    setSyncStatus: (String) -> Unit,
-    retrySync: () -> Unit,
-): (android.net.Uri) -> Unit = { uri ->
-    if (rememberNoteFolder(context, uri)) {
-        setSyncStatus(texts.t("Syncing notes with Google Drive…"))
-        retrySync()
-    } else {
-        setSyncStatus(texts.t("MailCraft could not keep access to that folder."))
-    }
 }
 
 @Composable

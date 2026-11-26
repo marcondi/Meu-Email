@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -81,38 +82,7 @@ private fun NoteList(texts: Texts, data: NotesData, actions: NotesActions, modif
                             }
                         }
                     }
-                    if (state.rows.isEmpty()) {
-                        item(key = "empty") { Centered(texts.t("No notes.")) }
-                    }
-                    items(state.rows, key = { it.id }) { row ->
-                        Card(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = Gutter, vertical = 6.dp)
-                                .clickable { actions.onOpen(row) },
-                        ) {
-                            Column(
-                                modifier = Modifier.padding(Gutter),
-                                verticalArrangement = Arrangement.spacedBy(6.dp),
-                            ) {
-                                Text(
-                                    row.title.ifBlank { texts.t("Untitled note") },
-                                    style = MaterialTheme.typography.titleMedium,
-                                    maxLines = 1,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                                Text(
-                                    row.snippet,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    maxLines = 3,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                                if (row.readOnly) {
-                                    Text(texts.t("Read-only import"), style = MaterialTheme.typography.labelSmall)
-                                }
-                            }
-                        }
-                    }
+                    noteRows(state.rows, texts, actions)
                 }
                 ExtendedFloatingActionButton(
                     onClick = actions.onNew,
@@ -120,6 +90,37 @@ private fun NoteList(texts: Texts, data: NotesData, actions: NotesActions, modif
                     text = { Text(texts.t("New note")) },
                     modifier = Modifier.align(Alignment.BottomEnd).padding(Gutter),
                 )
+            }
+        }
+    }
+}
+
+private fun LazyListScope.noteRows(rows: List<NoteRow>, texts: Texts, actions: NotesActions) {
+    if (rows.isEmpty()) {
+        item(key = "empty") { Centered(texts.t("No notes.")) }
+    } else {
+        items(rows, key = { it.id }) { row ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = Gutter, vertical = 6.dp)
+                    .clickable { actions.onOpen(row) },
+            ) {
+                Column(modifier = Modifier.padding(Gutter), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        row.title.ifBlank { texts.t("Untitled note") },
+                        style = MaterialTheme.typography.titleMedium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        row.snippet,
+                        style = MaterialTheme.typography.bodyMedium,
+                        maxLines = 3,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    if (row.readOnly) Text(texts.t("Read-only import"), style = MaterialTheme.typography.labelSmall)
+                }
             }
         }
     }
