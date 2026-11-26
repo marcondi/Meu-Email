@@ -16,7 +16,6 @@ import java.util.UUID
 
 private const val DRIVE_PREFS = "notes-sync"
 private const val FOLDER_KEY = "folder-uri"
-private const val MAILCRAFT_FOLDER = "MailCraft Notes"
 internal const val SNAPSHOT_PREFIX = "notes-"
 internal const val MAX_SNAPSHOT_FILES = 64
 internal const val KEEP_DEVICE_SNAPSHOTS = 3
