@@ -156,8 +156,12 @@ pub fn merge_into_mailbox(mailbox: &mut Mailbox, device_id: &str, snapshots: &[N
     if merged.len() > MAX_SYNC_NOTES {
         return Err(NoteSnapshotError::TooManyNotes);
     }
-    let local_ids: BTreeMap<String, mailcraft_model::Id> =
-        mailbox.notes.iter().filter_map(|(id, note)| (!note.sync_id.is_empty()).then(|| (note.sync_id.clone(), *id))).collect();
+    let local_ids: BTreeMap<String, mailcraft_model::Id> = mailbox
+        .notes
+        .iter()
+        .filter(|(_, note)| !note.sync_id.is_empty())
+        .map(|(id, note)| (note.sync_id.clone(), *id))
+        .collect();
     for mut note in merged {
         if note.text.len() > MAX_SYNC_NOTE_BYTES {
             return Err(NoteSnapshotError::NoteTooLarge);
