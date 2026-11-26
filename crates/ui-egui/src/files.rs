@@ -40,6 +40,8 @@ pub(crate) enum AfterPick {
     Tree,
     /// Ask for the picked .pst file's password and place, then import it ([`crate::import_pst`]).
     Pst,
+    /// Remember a local Google Drive mirror folder for MailCraft's private note snapshots.
+    NotesSync,
 }
 
 impl FileDialogRequest {
@@ -91,6 +93,10 @@ fn export_name(app: &MailApp, id: &str, params: &Value) -> Option<String> {
 /// A user-run command that writes a file and has no `path` yet: ask where (desktop) or download
 /// what it produces (browser). `None` for every other command.
 pub(crate) fn intercept(app: &mut MailApp, id: &str, params: &Value) -> Option<Result<Value, String>> {
+    if id == "ui.notesSyncFolder" && params.get("path").is_none() {
+        app.services.file_dialog.as_ref()?;
+        return Some(ask(app, FileDialogRequest::Folder, AfterPick::NotesSync));
+    }
     // Open, Import and Attach without a file: pick one.
     if id == "file.importFolderTree" && params.get("path").is_none() && params.get("entries").is_none() && params.get("staged").is_none() {
         // A host that can't ask for a folder lets the command say what it needs.
@@ -180,7 +186,7 @@ pub(crate) fn open(app: &mut MailApp, purpose: &str) {
     let _ = ask(app, FileDialogRequest::Open { purpose: purpose.to_string() }, AfterPick::Open(purpose.to_string(), asking));
 }
 
-fn ask(app: &mut MailApp, req: FileDialogRequest, after: AfterPick) -> Result<Value, String> {
+pub(crate) fn ask(app: &mut MailApp, req: FileDialogRequest, after: AfterPick) -> Result<Value, String> {
     if app.file_dialog.is_some() {
         app.status(tl!("A file dialog is already open."));
         return Ok(json!({"pending": "fileDialog"}));
@@ -246,6 +252,12 @@ pub(crate) fn poll(app: &mut MailApp) -> Option<Result<Value, String>> {
         AfterPick::Open(purpose, asking) => opened_path(app, &purpose, &path, asking),
         AfterPick::Tree => app.run("ui.dialog", json!({"name": "importTree", "path": path})),
         AfterPick::Pst => app.run("ui.dialog", json!({"name": "importPst", "path": path})),
+        AfterPick::NotesSync => {
+            app.ui.notes_sync_folder = path;
+            #[cfg(not(target_arch = "wasm32"))]
+            crate::notes_drive_sync::sync(app);
+            Ok(json!({"folderSelected": true}))
+        }
         AfterPick::Export { command, mut params } => {
             if let Some(o) = params.as_object_mut() {
                 o.insert("path".into(), json!(path));

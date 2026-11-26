@@ -12,6 +12,7 @@ internal enum class Tab {
     Calendar,
     People,
     Tasks,
+    Notes,
     ;
 
     fun label(texts: Texts): String = when (this) {
@@ -20,6 +21,7 @@ internal enum class Tab {
         Calendar -> texts.t("Calendar")
         People -> texts.t("People")
         Tasks -> texts.t("Tasks")
+        Notes -> texts.t("Notes")
     }
 }
 

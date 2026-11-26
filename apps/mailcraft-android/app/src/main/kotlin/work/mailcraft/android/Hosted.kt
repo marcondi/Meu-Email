@@ -12,24 +12,27 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.net.toUri
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import uniffi.mailcraft_mobile.Core
+import uniffi.mailcraft_mobile.CoreException
 
 /** What the Today, People and Tasks tabs show, and what they do. */
 internal class Hosted(
     val today: TodayState,
     val people: PeopleData,
     val tasks: TasksData,
+    val notes: NotesData,
     val peopleActions: PeopleActions,
     val tasksActions: TasksActions,
+    val notesActions: NotesActions,
 )
 
 /** Opens [link] (a `mailto:` or `tel:` built by [mailtoLink] or [dialLink]) in the program that handles it. */
@@ -55,10 +58,90 @@ internal fun rememberHosted(core: Core, texts: Texts, ready: Boolean, reload: In
     val tick = remember { mutableIntStateOf(0) }
     val people = rememberPeople(core, texts, ready, reload, context)
     val tasks = rememberTasks(core, texts, ready, reload, tick)
+    val notes = rememberNotes(core, texts, ready, reload, tick, context)
     val today by produceState<TodayState>(TodayState.Loading, ready, reload, tick.intValue) {
         if (ready) value = loadToday(core)
     }
-    return Hosted(today, people.first, tasks.first, people.second, tasks.second)
+    return Hosted(today, people.first, tasks.first, notes.first, people.second, tasks.second, notes.second)
+}
+
+@Composable
+private fun rememberNotes(
+    core: Core,
+    texts: Texts,
+    ready: Boolean,
+    reload: Int,
+    tick: MutableIntState,
+    context: Context,
+): Pair<NotesData, NotesActions> {
+    val scope = rememberCoroutineScope()
+    var editor by remember { mutableStateOf<NoteDraft?>(null) }
+    var notice by remember { mutableStateOf<String?>(null) }
+    var syncStatus by remember { mutableStateOf<String?>(null) }
+    var syncTick by remember { mutableIntStateOf(0) }
+    var busy by remember { mutableStateOf(false) }
+    val state by produceState<NotesState>(NotesState.Loading, ready, reload, tick.intValue) {
+        if (ready) value = loadNotes(core, texts)
+    }
+    LaunchedEffect(ready, syncTick) {
+        if (ready) {
+            val result = syncDriveNotes(core, context, texts)
+            syncStatus = result.status
+            if (result.synchronized) tick.intValue += 1
+        }
+    }
+    fun act(command: String, params: String, after: () -> Unit = {}) {
+        if (busy) return
+        busy = true
+        scope.launch {
+            try {
+                core.execute(command, params)
+                notice = null
+                after()
+                tick.intValue += 1
+                syncTick++
+            } catch (error: CoreException) {
+                notice = reasonOf(error) ?: texts.t("That could not be saved.")
+            } finally {
+                busy = false
+            }
+        }
+    }
+    val actions = NotesActions(
+        onNew = { if (!busy) { notice = null; editor = NoteDraft(null, "") } },
+        onOpen = { row ->
+            if (!busy) scope.launch { editor = loadNote(core, row.id) ?: run { notice = texts.t("The note could not be opened."); null } }
+        },
+        onText = { text ->
+            if (!busy && text.toByteArray(Charsets.UTF_8).size <= MAX_NOTE_BYTES) editor = editor?.copy(text = text)
+        },
+        onSave = {
+            val draft = editor
+            if (draft != null && !busy) {
+                val deviceId = noteDeviceId(context)
+                val params = if (draft.id == null) {
+                    jsonText(mapOf("text" to draft.text, "deviceId" to deviceId))
+                } else {
+                    jsonText(mapOf("id" to draft.id, "text" to draft.text, "deviceId" to deviceId))
+                }
+                act(if (draft.id == null) "notes.new" else "notes.edit", params) { editor = null }
+            }
+        },
+        onDelete = {
+            val id = editor?.id
+            if (id != null && !busy) act("notes.delete", jsonText(mapOf("id" to id, "deviceId" to noteDeviceId(context)))) { editor = null }
+        },
+        onClose = { if (!busy) editor = null },
+        onChooseDriveFolder = { uri ->
+            if (rememberNoteFolder(context, uri)) {
+                syncStatus = texts.t("Syncing notes with Google Drive…")
+                syncTick++
+            } else {
+                syncStatus = texts.t("MailCraft could not keep access to that folder.")
+            }
+        },
+    )
+    return NotesData(state, editor, notice, busy, syncStatus) to actions
 }
 
 @Composable

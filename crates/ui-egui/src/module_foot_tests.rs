@@ -24,7 +24,7 @@ fn at_foot(w: &mut Window, foot: bool) {
 
 /// The row at the foot, by the hit map: one rectangle for each module, side by side.
 fn row(w: &Window) -> Vec<egui::Rect> {
-    (0..4).filter_map(|i| w.state().hit.rect("moduleFoot", i)).collect()
+    (0..5).filter_map(|i| w.state().hit.rect("moduleFoot", i)).collect()
 }
 
 /// Where the modules are: the bar down the left edge, or the row at the foot of the pane.
@@ -37,7 +37,7 @@ fn the_switch_moves_from_the_bar_to_the_foot_and_back() {
     let with_bar = w.state().hit.rect("folderPaneHide", 0).expect("the folder pane's hide button");
     at_foot(&mut w, true);
     let foot = row(&w);
-    assert_eq!(foot.len(), 4, "a place for each module");
+    assert_eq!(foot.len(), 5, "a place for each module");
     // Side by side, in one row, each as wide as the next.
     assert!(foot.windows(2).all(|p| p[1].min.x >= p[0].max.x - 0.5 && (p[1].height() - p[0].height()).abs() < 0.5), "{foot:?}");
     assert!(foot.windows(2).all(|p| (p[0].min.y - p[1].min.y).abs() < 0.5));
@@ -46,9 +46,9 @@ fn the_switch_moves_from_the_bar_to_the_foot_and_back() {
     let window = w.state().hit.rect("folderPaneHide", 0).expect("the folder pane's hide button");
     // (The window the test harness builds: 1280 by 800.)
     let (width, height) = (1280.0, 800.0);
-    assert!(foot[0].min.x < 40.0 && foot[3].max.x < width / 2.0, "{foot:?}");
+    assert!(foot[0].min.x < 40.0 && foot[4].max.x < width / 2.0, "{foot:?}");
     assert!(foot[0].min.y > height / 2.0, "at the foot");
-    assert!(window.max.x <= foot[3].max.x + 1.0 && window.max.y < foot[0].min.y, "the row is under the pane, {window:?}");
+    assert!(window.max.x <= foot[4].max.x + 1.0 && window.max.y < foot[0].min.y, "the row is under the pane, {window:?}");
     // The bar's column is gone, so the pane and everything beside it start further left.
     assert!(window.min.x < with_bar.min.x - 40.0, "{window:?} against {with_bar:?}");
     at_foot(&mut w, false);
@@ -62,16 +62,21 @@ fn the_switch_moves_from_the_bar_to_the_foot_and_back() {
 fn a_click_at_the_foot_goes_to_that_module() {
     let mut w = window();
     at_foot(&mut w, true);
-    for (i, module) in
-        [mailcraft_engine::Module::Calendar, mailcraft_engine::Module::People, mailcraft_engine::Module::Tasks, mailcraft_engine::Module::Mail]
-            .into_iter()
-            .enumerate()
+    for (i, module) in [
+        mailcraft_engine::Module::Calendar,
+        mailcraft_engine::Module::People,
+        mailcraft_engine::Module::Tasks,
+        mailcraft_engine::Module::Notes,
+        mailcraft_engine::Module::Mail,
+    ]
+    .into_iter()
+    .enumerate()
     {
-        let at = [1u64, 2, 3, 0][i];
+        let at = [1u64, 2, 3, 4, 0][i];
         let r = w.state().hit.rect("moduleFoot", at).unwrap_or_else(|| panic!("{module:?} at the foot"));
         testing::click(&mut w, r.center(), PointerButton::Primary, 1);
         assert_eq!(w.state().session.view.module, module);
-        assert_eq!(row(&w).len(), 4, "{module:?} shows the row too");
+        assert_eq!(row(&w).len(), 5, "{module:?} shows the row too");
     }
 }
 
@@ -123,8 +128,8 @@ fn the_bar_comes_back_where_there_is_no_pane_for_the_row() {
     let mut w = window();
     at_foot(&mut w, true);
     let with_row = w.state().hit.rect("folderPaneHide", 0).expect("the folder pane's hide button");
-    assert_eq!(row(&w).len(), 4);
-    // Mail with the folder pane hidden: the strip left is too narrow for four modules.
+    assert_eq!(row(&w).len(), 5);
+    // Mail with the folder pane hidden: the strip left is too narrow for five modules.
     w.state_mut().execute("view.folderPane", json!({"value": false})).unwrap();
     w.run_steps(3);
     assert!(row(&w).is_empty(), "no row squeezed into the strip");
@@ -137,16 +142,16 @@ fn the_bar_comes_back_where_there_is_no_pane_for_the_row() {
     w.run_steps(3);
     assert!(row(&w).is_empty());
     // People and Tasks keep theirs, so the row is at their foot.
-    for module in ["view.people", "view.tasks"] {
+    for module in ["view.people", "view.tasks", "view.notes"] {
         w.state_mut().execute(module, json!({})).unwrap();
         w.run_steps(3);
-        assert_eq!(row(&w).len(), 4, "{module}");
+        assert_eq!(row(&w).len(), 5, "{module}");
     }
     // The pane back: Mail has the row again, where it was.
     w.state_mut().execute("view.mail", json!({})).unwrap();
     w.state_mut().execute("view.folderPane", json!({"value": true})).unwrap();
     w.run_steps(3);
-    assert_eq!(row(&w).len(), 4);
+    assert_eq!(row(&w).len(), 5);
     assert!((w.state().hit.rect("folderPaneHide", 0).unwrap().min.x - with_row.min.x).abs() < 0.5);
 }
 
@@ -161,17 +166,17 @@ fn the_choice_carries_over_a_restart() {
     next.state_mut().apply_prefs(saved);
     next.run_steps(3);
     assert!(next.state().session.view.nav_foot, "the foot was asked for");
-    assert_eq!(row(&next).len(), 4);
+    assert_eq!(row(&next).len(), 5);
 }
 
 /// The names show beside the icons only where the pane is wide enough for the longest of them,
-/// and then for all four: a narrow pane leaves the icons alone rather than naming some of them.
+/// and then for all five: a narrow pane leaves the icons alone rather than naming some of them.
 #[test]
 fn the_names_show_where_they_all_fit() {
-    // A module's name at 12 pt is about 50 points wide; each module has a quarter of the pane.
+    // A module's name at 12 pt is about 50 points wide; each module has a fifth of the pane.
     let widest = 50.0;
-    assert!(!crate::nav::names_fit(230.0 / 4.0, widest), "a pane at its usual width: the icons alone");
-    assert!(crate::nav::names_fit(360.0 / 4.0, widest), "a pane dragged wider: the names too");
+    assert!(!crate::nav::names_fit(230.0 / 5.0, widest), "a pane at its usual width: the icons alone");
+    assert!(crate::nav::names_fit(500.0 / 5.0, widest), "a pane dragged wider: the names too");
     // The rule is the same for every module, so the row is never half named.
     assert_eq!(crate::nav::names_fit(72.0, widest), crate::nav::names_fit(72.0, widest));
     assert!(!crate::nav::names_fit(widest + 21.0, widest) && crate::nav::names_fit(widest + 22.0, widest), "the icon and the gap beside it");

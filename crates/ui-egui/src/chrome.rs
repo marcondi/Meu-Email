@@ -105,7 +105,7 @@ fn search_box(app: &mut MailApp, ui: &mut Ui, rect: Rect) {
     icons::paint(ui.painter(), Rect::from_center_size(pos2(rect.min.x + 15.0, rect.center().y), vec2(16.0, 16.0)), "search", t.text_dim, t.accent);
     // People has a search of its own, which the box shows and types into there; everywhere else
     // the box is the mail's (#366).
-    let mail_search = app.session.view.module != Module::People;
+    let mail_search = !matches!(app.session.view.module, Module::People | Module::Notes);
     // When the other search came in front since the box was last drawn (Ctrl+1, Ctrl+3, a click),
     // with the keyboard in the box or not.
     let slot = id.with("mail_search");
@@ -159,6 +159,7 @@ fn search_box(app: &mut MailApp, ui: &mut Ui, rect: Rect) {
         Module::People => tl!("Search people"),
         // Calendar and Tasks have no search of their own yet: what is typed looks in the mail.
         Module::Calendar | Module::Tasks => tl!("Search mail"),
+        Module::Notes => tl!("Search notes"),
         Module::Mail => tl!("Search mail (try from:, has:attachment, is:unread)"),
     };
     // The tabs' size in the tall box of the title row; the small one in the macOS title bar.
@@ -501,6 +502,10 @@ pub fn status_bar(app: &mut MailApp, ui: &mut Ui) {
                         let shown = mailcraft_engine::cmd::tasks::shown_account(&app.session);
                         let open = app.session.mailbox.tasks.values().filter(|x| !x.is_complete() && shown.shows(&x.origin)).count();
                         st(ui, &tln!(open, "{n} open task", "{n} open tasks"), t.text_dim);
+                    }
+                    Module::Notes => {
+                        let shown = app.session.mailbox.notes.values().filter(|note| !note.deleted).count();
+                        st(ui, &tln!(shown, "{n} note", "{n} notes"), t.text_dim);
                     }
                 }
                 if let Some((msg, at)) = &app.status_msg
