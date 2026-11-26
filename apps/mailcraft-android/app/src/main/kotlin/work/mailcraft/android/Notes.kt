@@ -4,6 +4,7 @@ package work.mailcraft.android
 
 import android.content.Context
 import android.net.Uri
+import androidx.core.content.edit
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -90,7 +91,7 @@ internal fun noteDeviceId(context: Context): String {
     val preferences = context.getSharedPreferences("notes-sync", Context.MODE_PRIVATE)
     return synchronized(preferences) {
         preferences.getString("device-id", null) ?: UUID.randomUUID().toString().also { id ->
-            preferences.edit().putString("device-id", id).apply()
+            preferences.edit { putString("device-id", id) }
         }
     }
 }
