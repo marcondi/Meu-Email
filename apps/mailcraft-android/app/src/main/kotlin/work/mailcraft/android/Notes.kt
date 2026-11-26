@@ -50,14 +50,18 @@ internal suspend fun loadNotes(
 ): NotesState = withContext(dispatcher) {
     try {
         val response = JSONObject(core.execute("notes.list", "{\"limit\":$NOTE_LIST_LIMIT}"))
-        val records = response.optJSONArray("notes") ?: return@withContext NotesState.Failed(texts.t("The notes could not be read."))
-        val rows = buildList {
-            for (index in 0 until records.length()) {
-                val record = records.optJSONObject(index) ?: continue
-                val rawId = record.optLong("id", -1L)
-                if (rawId < 0) continue
-                add(NoteRow(rawId.toULong(), record.optString("subject"), record.optString("snippet"), record.optBoolean("readOnly", true)))
-            }
+        val records = response.optJSONArray("notes")
+            ?: return@withContext NotesState.Failed(texts.t("The notes could not be read."))
+        val rows = (0 until records.length()).mapNotNull { index ->
+            val record = records.optJSONObject(index) ?: return@mapNotNull null
+            val rawId = record.optLong("id", -1L)
+            if (rawId < 0) return@mapNotNull null
+            NoteRow(
+                rawId.toULong(),
+                record.optString("subject"),
+                record.optString("snippet"),
+                record.optBoolean("readOnly", true),
+            )
         }
         NotesState.Ready(rows)
     } catch (_: CoreException) {

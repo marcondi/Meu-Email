@@ -72,20 +72,44 @@ private fun NoteList(texts: Texts, data: NotesData, actions: NotesActions, modif
                 LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
                     data.notice?.let { item(key = "notice") { Notice(it) } }
                     item(key = "drive-sync") {
-                        Column(modifier = Modifier.fillMaxWidth().padding(horizontal = Gutter, vertical = 8.dp)) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = Gutter, vertical = 8.dp),
+                        ) {
                             Text(data.syncStatus.orEmpty(), style = MaterialTheme.typography.bodySmall)
                             Button(onClick = { folderPicker.launch(noteFolderUri(context)) }) {
                                 Text(texts.t("Choose Google Drive folder"))
                             }
                         }
                     }
-                    if (state.rows.isEmpty()) item(key = "empty") { Centered(texts.t("No notes.")) }
+                    if (state.rows.isEmpty()) {
+                        item(key = "empty") { Centered(texts.t("No notes.")) }
+                    }
                     items(state.rows, key = { it.id }) { row ->
-                        Card(modifier = Modifier.fillMaxWidth().padding(horizontal = Gutter, vertical = 6.dp).clickable { actions.onOpen(row) }) {
-                            Column(modifier = Modifier.padding(Gutter), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                                Text(row.title.ifBlank { texts.t("Untitled note") }, style = MaterialTheme.typography.titleMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                                Text(row.snippet, style = MaterialTheme.typography.bodyMedium, maxLines = 3, overflow = TextOverflow.Ellipsis)
-                                if (row.readOnly) Text(texts.t("Read-only import"), style = MaterialTheme.typography.labelSmall)
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = Gutter, vertical = 6.dp)
+                                .clickable { actions.onOpen(row) },
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(Gutter),
+                                verticalArrangement = Arrangement.spacedBy(6.dp),
+                            ) {
+                                Text(
+                                    row.title.ifBlank { texts.t("Untitled note") },
+                                    style = MaterialTheme.typography.titleMedium,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                                Text(
+                                    row.snippet,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    maxLines = 3,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                                if (row.readOnly) {
+                                    Text(texts.t("Read-only import"), style = MaterialTheme.typography.labelSmall)
+                                }
                             }
                         }
                     }
@@ -125,7 +149,9 @@ private fun NoteEditor(texts: Texts, data: NotesData, actions: NotesActions, sho
         )
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(onClick = actions.onSave, enabled = !data.busy && !draft.readOnly) { Text(texts.t("Save")) }
-            if (draft.id != null && !draft.readOnly) TextButton(onClick = actions.onDelete, enabled = !data.busy) { Text(texts.t("Delete")) }
+            if (draft.id != null && !draft.readOnly) {
+                TextButton(onClick = actions.onDelete, enabled = !data.busy) { Text(texts.t("Delete")) }
+            }
             if (!showBack) TextButton(onClick = actions.onClose, enabled = !data.busy) { Text(texts.t("Close")) }
         }
         HorizontalDivider()
