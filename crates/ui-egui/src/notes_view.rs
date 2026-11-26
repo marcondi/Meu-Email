@@ -11,7 +11,7 @@ pub fn show(app: &mut MailApp, ui: &mut Ui) {
     let device_id = app.ui.notes_sync_device_id.clone();
     let list = app.execute("notes.list", json!({ "limit": 5000 })).unwrap_or(Value::Null);
     let notes: Vec<Value> = list.get("notes").and_then(Value::as_array).cloned().unwrap_or_default();
-    let selection_key = egui::Id::new("mailcraft.notes.selected");
+    let selection_key = egui::Id::unique("mailcraft.notes.selected");
     let mut selected = ui.ctx().data(|data| data.get_temp::<u64>(selection_key));
     if !selected.is_some_and(|id| notes.iter().any(|note| note.get("id").and_then(Value::as_u64) == Some(id))) {
         selected = notes.first().and_then(|note| note.get("id").and_then(Value::as_u64));
@@ -21,13 +21,12 @@ pub fn show(app: &mut MailApp, ui: &mut Ui) {
     }
 
     ui.horizontal(|ui| {
-        if ui.button(crate::tl!("New note")).clicked() {
-            if let Ok(created) = app.run("notes.new", json!({ "deviceId": device_id.as_str() }))
-                && let Some(id) = created.get("id").and_then(Value::as_u64)
-            {
-                selected = Some(id);
-                ui.ctx().data_mut(|data| data.insert_temp(selection_key, id));
-            }
+        if ui.button(crate::tl!("New note")).clicked()
+            && let Ok(created) = app.run("notes.new", json!({ "deviceId": device_id.as_str() }))
+            && let Some(id) = created.get("id").and_then(Value::as_u64)
+        {
+            selected = Some(id);
+            ui.ctx().data_mut(|data| data.insert_temp(selection_key, id));
         }
         if ui.button(crate::tl!("Choose Google Drive folder…")).clicked() {
             let _ = app.run("ui.notesSyncFolder", json!({}));
@@ -63,7 +62,7 @@ pub fn show(app: &mut MailApp, ui: &mut Ui) {
             };
             let note = app.execute("notes.get", json!({ "id": id })).unwrap_or(Value::Null);
             let read_only = note.get("readOnly").and_then(Value::as_bool).unwrap_or(true);
-            let text_key = egui::Id::new(("mailcraft.notes.draft", id));
+            let text_key = egui::Id::unique(("mailcraft.notes.draft", id));
             let original = note.get("body").and_then(Value::as_str).unwrap_or_default().to_string();
             let cached = ui.ctx().data(|data| data.get_temp::<(String, String)>(text_key));
             let mut draft = cached.map_or_else(

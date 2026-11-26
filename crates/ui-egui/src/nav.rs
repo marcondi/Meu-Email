@@ -87,12 +87,10 @@ pub fn module_bar(app: &mut MailApp, ui: &mut Ui) {
             }
         }
         // Journal entries are retained for PST support; Notes has its own working module now.
-        for (icon, name) in [("journal", tl!("Journal"))] {
-            let (r, resp) = ui.allocate_exact_size(vec2(RAIL_W, RAIL_PITCH), Sense::hover());
-            let ink = t.icon.linear_multiply(0.45);
-            icons::paint(ui.painter(), Rect::from_center_size(r.center(), vec2(24.0, 24.0)), icon, ink, ink);
-            resp.on_hover_text(format!("{name}: {}", tl!("Pending development")));
-        }
+        let (r, resp) = ui.allocate_exact_size(vec2(RAIL_W, RAIL_PITCH), Sense::hover());
+        let ink = t.icon.linear_multiply(0.45);
+        icons::paint(ui.painter(), Rect::from_center_size(r.center(), vec2(24.0, 24.0)), "journal", ink, ink);
+        resp.on_hover_text(format!("{}: {}", tl!("Journal"), tl!("Pending development")));
     });
 }
 
