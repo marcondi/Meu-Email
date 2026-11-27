@@ -431,6 +431,7 @@ pub(crate) fn describe_tab(app: &MailApp, name: &str) -> Tab {
             Module::Calendar => (home_calendar(app), "Home calendar"),
             Module::People => (home_people(app), "Home people"),
             Module::Tasks => (home_tasks(app), "Home tasks"),
+            Module::Notes => (notes_ribbon(app), "Home notes"),
         },
     };
     if app.services.recent_attachments.is_some() {
@@ -442,6 +443,13 @@ pub(crate) fn describe_tab(app: &MailApp, name: &str) -> Tab {
     }
     fit::prioritise(&mut tab, which);
     tab
+}
+
+fn notes_ribbon(_app: &MailApp) -> Tab {
+    Tab::of(vec![
+        g("Notes", vec![Item::big("new", "New Note", "notes.new", no()).at(0, 1)]),
+        g("Google Drive", vec![Item::big("folder", "Choose Sync Folder", "ui.notesSyncFolder", no()).at(1, 1)]),
+    ])
 }
 
 fn no() -> Value {

@@ -46,6 +46,8 @@ pub enum Object {
     Calendar,
     /// A category.
     Category,
+    /// One note, by the id named in the command.
+    Note,
     /// An account: the one named, or the first of a kind.
     Account,
     /// A rule.
@@ -95,6 +97,7 @@ pub fn object(id: &str) -> Option<Object> {
         // what goes, and is described again on the yes.)
         "rules.run" | "file.import" | "calendar.deleteAnsweredRequests" | "mail.removeImportedDuplicates" => Folder,
         "people.delete" | "people.merge" | "people.categorize" => Contact,
+        "notes.delete" => Note,
         "tasks.delete" | "tasks.edit" | "tasks.complete" | "tasks.categorize" | "tasks.new" | "tasks.fromMessage" => Task,
         // A calendar command that writes to people is asked about whatever it is (`classify`).
         "calendar.forward" | "calendar.propose" | "calendar.delete" | "people.meeting" | "ui.joinMeeting" => Event,
@@ -210,6 +213,8 @@ pub struct Shown {
     /// text of the question names none of it, and a yes must not reach another server than the
     /// owner was asked about (#209).
     dav: u64,
+    /// The note an owner-approved delete will affect.
+    note: Option<mailcraft_model::Note>,
 }
 
 /// A folder emptied or deleted, as the question showed it.
@@ -249,6 +254,7 @@ impl Shown {
         let object = object(id)?;
         let keys = RandomState::new();
         let dav = dav_identity(&keys, s, id, params);
+        let note = (object == Object::Note).then(|| named_note(s, params)).flatten();
         let held = (object == Object::FolderContent).then(|| held(s, id, params)).flatten();
         Some(Shown {
             object,
@@ -261,6 +267,7 @@ impl Shown {
             held,
             people: people(s, object, params),
             dav,
+            note,
         })
     }
 
@@ -288,6 +295,9 @@ impl Shown {
         if people(s, self.object, params) != self.people || dav_identity(&self.keys, s, id, params) != self.dav {
             return changed();
         }
+        if self.object == Object::Note && self.note != named_note(s, params) {
+            return changed();
+        }
         if self.object == Object::FolderContent {
             let (Some(shown), Some(now)) = (&self.held, held(s, id, params)) else { return changed() };
             if shown.folder != now.folder {
@@ -311,6 +321,12 @@ impl Shown {
         }
         Ok(Reach::All)
     }
+}
+
+/// The note named by a command, if it exists.
+fn named_note(s: &Session, params: &Value) -> Option<mailcraft_model::Note> {
+    let id = p::id_strict(params, "id").ok()??;
+    s.mailbox.notes.get(&id).map(|note| note.as_ref().clone())
 }
 
 /// The folder `folder.empty` or `folder.delete` with `params` acts on, as the command finds it,

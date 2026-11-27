@@ -5,13 +5,14 @@ package work.mailcraft.android
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 
-/** The five places of the bottom bar (and the tablet's rail), in their order. */
+/** The six places of the bottom bar (and the tablet's rail), in their order. */
 internal enum class Tab {
     Today,
     Mail,
     Calendar,
     People,
     Tasks,
+    Notes,
     ;
 
     fun label(texts: Texts): String = when (this) {
@@ -20,6 +21,7 @@ internal enum class Tab {
         Calendar -> texts.t("Calendar")
         People -> texts.t("People")
         Tasks -> texts.t("Tasks")
+        Notes -> texts.t("Notes")
     }
 }
 

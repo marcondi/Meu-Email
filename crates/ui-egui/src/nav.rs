@@ -86,13 +86,11 @@ pub fn module_bar(app: &mut MailApp, ui: &mut Ui) {
                 let _ = app.run(id, json!({}));
             }
         }
-        // What a .pst file's notes and journal entries will be read in: kept, with no view yet.
-        for (icon, name) in [("notes", tl!("Notes")), ("journal", tl!("Journal"))] {
-            let (r, resp) = ui.allocate_exact_size(vec2(RAIL_W, RAIL_PITCH), Sense::hover());
-            let ink = t.icon.linear_multiply(0.45);
-            icons::paint(ui.painter(), Rect::from_center_size(r.center(), vec2(24.0, 24.0)), icon, ink, ink);
-            resp.on_hover_text(format!("{name}: {}", tl!("Pending development")));
-        }
+        // Journal entries are retained for PST support; Notes has its own working module now.
+        let (r, resp) = ui.allocate_exact_size(vec2(RAIL_W, RAIL_PITCH), Sense::hover());
+        let ink = t.icon.linear_multiply(0.45);
+        icons::paint(ui.painter(), Rect::from_center_size(r.center(), vec2(24.0, 24.0)), "journal", ink, ink);
+        resp.on_hover_text(format!("{}: {}", tl!("Journal"), tl!("Pending development")));
     });
 }
 
@@ -104,25 +102,26 @@ const FOOT_NAME: f32 = 12.0;
 const FOOT_NAME_ROOM: f32 = 22.0;
 
 /// The icon and command id of each module, in the order both the bar and the foot show them.
-fn module_buttons() -> [(Module, &'static str, &'static str); 4] {
+fn module_buttons() -> [(Module, &'static str, &'static str); 5] {
     [
         (Module::Mail, "mail", "view.mail"),
         (Module::Calendar, "calendar", "view.calendar"),
         (Module::People, "people", "view.people"),
         (Module::Tasks, "tasks", "view.tasks"),
+        (Module::Notes, "notes", "view.notes"),
     ]
 }
 
 /// Whether the row of modules sits at the foot of the pane on the left (#1174): the owner asked
 /// for it, and the module in view has a pane for it. Mail's folder pane and the calendar's side
-/// pane can be hidden, and what is left of Mail's is a strip too narrow for four modules; People
+/// pane can be hidden, and what is left of Mail's is a strip too narrow for five modules; People
 /// and Tasks always have theirs. Without a pane the bar down the window's edge stays, so the
 /// switch is never out of reach.
 pub fn foot_in_use(s: &mailcraft_engine::Session) -> bool {
-    s.view.nav_foot && (s.view.folder_pane || matches!(s.view.module, Module::People | Module::Tasks))
+    s.view.nav_foot && (s.view.folder_pane || matches!(s.view.module, Module::People | Module::Tasks | Module::Notes))
 }
 
-/// Whether a module's name is written beside its icon in the row (#1174): all four or none, so
+/// Whether a module's name is written beside its icon in the row (#1174): all five or none, so
 /// that the row doesn't read half named, and only where the pane is wide enough for the longest
 /// of them. A narrow pane leaves the icons alone, which is still the whole switch: what the row
 /// is for is the column the bar took down the window, not the names.
@@ -144,8 +143,8 @@ pub fn module_foot(app: &mut MailApp, ui: &mut Ui) {
         |ui| {
             ui.spacing_mut().item_spacing = vec2(0.0, 0.0);
             let room = ui.max_rect();
-            let each = (room.width() / 4.0).max(1.0);
-            // The names show for all four or for none, so the row doesn't read half named as the
+            let each = (room.width() / 5.0).max(1.0);
+            // The names show for all five or for none, so the row doesn't read half named as the
             // pane narrows: the longest of them is what has to fit.
             let widest = module_buttons()
                 .into_iter()

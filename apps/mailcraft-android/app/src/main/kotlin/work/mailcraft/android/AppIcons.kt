@@ -103,6 +103,16 @@ internal object AppIcons {
         }
     }
 
+    /** A note page with three writing lines. */
+    val Notes: ImageVector by lazy {
+        icon("Notes") {
+            roundedBox(5f, 3f, 19f, 21f, 2f)
+            line(9f, 8f, 15f, 8f)
+            line(9f, 12f, 15f, 12f)
+            line(9f, 16f, 15f, 16f)
+        }
+    }
+
     /** Three sliders. */
     val Settings: ImageVector by lazy {
         icon("Settings") {

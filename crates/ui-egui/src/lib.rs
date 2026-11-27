@@ -181,6 +181,9 @@ mod move_items;
 #[cfg(test)]
 mod move_items_tests;
 pub mod nav;
+#[cfg(not(target_arch = "wasm32"))]
+mod notes_drive_sync;
+pub mod notes_view;
 #[cfg(test)]
 mod on_top_tests;
 mod open_shared;
@@ -913,6 +916,10 @@ pub struct UiState {
     /// The address of the account whose tasks the list showed (`view.task_account`): an account's
     /// id is that account in its own mailbox only (#632).
     pub task_account_address: String,
+    /// Local Google Drive mirror selected for MailCraft note snapshots.
+    pub notes_sync_folder: String,
+    /// Stable identity for this desktop installation's snapshots.
+    pub notes_sync_device_id: String,
     /// The address of the account whose contacts People showed (`view.people_account`), for the
     /// same reason (#631).
     pub people_account_address: String,
@@ -1031,6 +1038,9 @@ impl Default for UiState {
             options: fresh_options(),
             view: mailcraft_engine::ViewState::default(),
             task_account_address: String::new(),
+            notes_sync_folder: String::new(),
+            notes_sync_device_id: mailcraft_engine::notes_sync::new_sync_id()
+                .map_or_else(|_| format!("desktop-{:x}", now_ms() as u64), |id| format!("desktop-{id}")),
             people_account_address: String::new(),
             folder_pane_width: 230.0,
             list_width: 380.0,
@@ -1156,6 +1166,7 @@ pub const UI_COMMANDS: &[(&str, &str, &str, &str)] = &[
         "File › Info",
         "{} — shows, in the system's file manager, the folder of the mailbox open now when it is kept outside MailCraft's settings folder, else the settings folder (which holds the mailbox and the settings). Answers {\"opened\": \"mailbox\"|\"settings\"}. Not in the browser; never for an agent",
     ),
+    ("ui.notesSyncFolder", "Choose Notes Sync Folder", "Notes", "{} — chooses the local Google Drive folder for MailCraft note snapshots"),
     (
         "ui.confirmServers",
         "Confirm Servers",
@@ -2158,6 +2169,8 @@ impl MailApp {
         // Which calendars lie over one another is a layout choice too (calendars that this
         // mailbox doesn't have are simply not found).
         (v.overlay, v.overlay_front) = (saved.overlay.iter().copied().take(200).collect(), saved.overlay_front);
+        #[cfg(not(target_arch = "wasm32"))]
+        notes_drive_sync::sync(self);
     }
 
     /// Whether a command exists and is enabled.
@@ -2316,6 +2329,10 @@ impl MailApp {
                 r
             }
         };
+        #[cfg(not(target_arch = "wasm32"))]
+        if r.is_ok() && matches!(id, "notes.new" | "notes.edit" | "notes.delete" | "view.notes") {
+            notes_drive_sync::sync(self);
+        }
         // View Source pressed by the owner: its window, with what it answered.
         if let (Ok(v), "mail.viewSource") = (&r, id) {
             self.show_source(v);
@@ -5529,6 +5546,7 @@ impl MailApp {
                 mailcraft_engine::Module::Calendar => calendar_view::show(self, ui),
                 mailcraft_engine::Module::People => people_view::show(self, ui),
                 mailcraft_engine::Module::Tasks => tasks_view::show(self, ui),
+                mailcraft_engine::Module::Notes => notes_view::show(self, ui),
             });
         }
         windows::compose_window::back(self, fronted);

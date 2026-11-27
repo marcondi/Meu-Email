@@ -24,6 +24,7 @@ pub fn specs() -> Vec<CommandSpec> {
         CommandSpec::new("view.calendar", "Calendar", "Navigation", calendar).reads().key("Mod+2"),
         CommandSpec::new("view.people", "People", "Navigation", people).reads().key("Mod+3"),
         CommandSpec::new("view.tasks", "Tasks", "Navigation", tasks).reads().key("Mod+4"),
+        CommandSpec::new("view.notes", "Notes", "Navigation", notes).reads().key("Mod+5"),
         CommandSpec::new("view.readingPane", "Reading Pane", "View › Layout", reading_pane).reads().params(r#"{"value": "right"|"bottom"|"off"}"#),
         CommandSpec::new("view.gmailCategories", "Gmail Categories", "View › Layout", gmail_categories)
             .reads()
@@ -32,7 +33,7 @@ pub fn specs() -> Vec<CommandSpec> {
         CommandSpec::new("view.folderPane", "Folder Pane", "View › Layout", folder_pane).reads().params(TOGGLE),
         CommandSpec::new("view.navigationBar", "Navigation Bar", "View › Layout", navigation_bar)
             .reads()
-            .params(r#"{"value": "bar"|"foot"} — the switch between Mail, Calendar, People and Tasks as the bar of icons down the window's left edge, or as a row of names at the foot of the pane on the left, where older mail programs had it (#1174)"#),
+            .params(r#"{"value": "bar"|"foot"} — the switch between Mail, Calendar, People, Tasks and Notes as the bar of icons down the window's left edge, or as a row at the foot of the pane on the left"#),
         CommandSpec::new("view.conversations", "Show as Conversations", "View › Messages", conversations).reads().params(TOGGLE),
         CommandSpec::new("view.sort", "Arrange By", "View › Arrangement", sort)
             .reads()
@@ -97,6 +98,10 @@ fn people(s: &mut Session, _: &Value) -> CmdResult {
 
 fn tasks(s: &mut Session, _: &Value) -> CmdResult {
     module(s, Module::Tasks)
+}
+
+fn notes(s: &mut Session, _: &Value) -> CmdResult {
+    module(s, Module::Notes)
 }
 
 fn reading_pane(s: &mut Session, v: &Value) -> CmdResult {

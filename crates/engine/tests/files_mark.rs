@@ -46,6 +46,7 @@ const OTHER_WRITERS: &[(&str, &str)] = &[
     ("apps/mailcraft/src/self_update.rs", "the program's own update"),
     ("apps/mailcraft/src/single_instance.rs", "a lock"),
     ("apps/mailcraft-cli/src/main.rs", "its tests"),
+    ("crates/ui-egui/src/notes_drive_sync.rs", "note-only snapshots in the user's selected Google Drive mirror"),
 ];
 
 /// What writes a file.

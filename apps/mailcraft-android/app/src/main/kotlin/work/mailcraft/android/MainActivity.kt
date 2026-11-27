@@ -283,6 +283,7 @@ private fun CoreShell(
             today = hosted.today,
             people = hosted.people,
             tasks = hosted.tasks,
+            notes = hosted.notes,
         ),
         actions = ShellActions(
             onFolder = { _, selected -> query = MailQuery(selected.id) },
@@ -298,7 +299,7 @@ private fun CoreShell(
             onPictures = pictures::changed,
             onClearPictures = pictures::clear,
             writing = WritingActions(writing.actions(), writing::newMessage, writing::snackShown),
-            organiser = OrganiserActions(hosted.peopleActions, hosted.tasksActions),
+            organiser = OrganiserActions(hosted.peopleActions, hosted.tasksActions, hosted.notesActions),
         ),
         calendar = calendar.pane,
         requestTab = calendar.requestTab, onTabRequested = calendar.onTabRequested,

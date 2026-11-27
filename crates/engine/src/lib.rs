@@ -46,6 +46,9 @@ mod mailbox_readers_tests;
 pub mod mark;
 #[cfg(test)]
 mod mark_tests;
+pub mod notes_sync;
+#[cfg(test)]
+mod notes_sync_tests;
 pub mod opening;
 #[cfg(test)]
 mod opening_tests;

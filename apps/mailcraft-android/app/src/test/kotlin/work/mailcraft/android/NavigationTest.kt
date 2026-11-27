@@ -8,9 +8,9 @@ import org.junit.Test
 
 class NavigationTest {
     @Test
-    fun fiveTabsInTheirOrder() {
+    fun sixTabsInTheirOrder() {
         assertEquals(
-            listOf("Today", "Mail", "Calendar", "People", "Tasks"),
+            listOf("Today", "Mail", "Calendar", "People", "Tasks", "Notes"),
             Tab.entries.map { it.label(EnglishTexts) },
         )
     }

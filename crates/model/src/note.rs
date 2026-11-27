@@ -21,6 +21,14 @@ pub struct Note {
     pub modified: Timestamp,
     /// What it is known by in the file it came from, so that a second import skips it.
     pub imported: String,
+    /// Stable identity shared across MailCraft installations; empty for imported PST notes.
+    pub sync_id: String,
+    /// Installation that last changed this note, used as a deterministic merge tie-breaker.
+    pub updated_by: String,
+    /// Per-note edit counter; concurrent devices starting from the same revision can be retained.
+    pub revision: u64,
+    /// A tombstone kept in Drive snapshots so a stale device cannot restore a deleted note.
+    pub deleted: bool,
 }
 
 /// A record of something done, and when.

@@ -12,11 +12,11 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.net.toUri
 import kotlinx.coroutines.Job
@@ -28,8 +28,10 @@ internal class Hosted(
     val today: TodayState,
     val people: PeopleData,
     val tasks: TasksData,
+    val notes: NotesData,
     val peopleActions: PeopleActions,
     val tasksActions: TasksActions,
+    val notesActions: NotesActions,
 )
 
 /** Opens [link] (a `mailto:` or `tel:` built by [mailtoLink] or [dialLink]) in the program that handles it. */
@@ -55,10 +57,66 @@ internal fun rememberHosted(core: Core, texts: Texts, ready: Boolean, reload: In
     val tick = remember { mutableIntStateOf(0) }
     val people = rememberPeople(core, texts, ready, reload, context)
     val tasks = rememberTasks(core, texts, ready, reload, tick)
+    val notes = rememberNotes(core, texts, ready, reload, tick, context)
     val today by produceState<TodayState>(TodayState.Loading, ready, reload, tick.intValue) {
         if (ready) value = loadToday(core)
     }
-    return Hosted(today, people.first, tasks.first, people.second, tasks.second)
+    return Hosted(today, people.first, tasks.first, notes.first, people.second, tasks.second, notes.second)
+}
+
+@Composable
+private fun rememberNotes(
+    core: Core,
+    texts: Texts,
+    ready: Boolean,
+    reload: Int,
+    tick: MutableIntState,
+    context: Context,
+): Pair<NotesData, NotesActions> {
+    val scope = rememberCoroutineScope()
+    var editor by remember { mutableStateOf<NoteDraft?>(null) }
+    var notice by remember { mutableStateOf<String?>(null) }
+    var syncStatus by remember { mutableStateOf<String?>(null) }
+    var syncTick by remember { mutableIntStateOf(0) }
+    var busy by remember { mutableStateOf(false) }
+    val state by produceState<NotesState>(NotesState.Loading, ready, reload, tick.intValue) {
+        if (ready) value = loadNotes(core, texts)
+    }
+    LaunchedEffect(ready, syncTick) {
+        if (ready) {
+            val result = syncDriveNotes(core, context, texts)
+            syncStatus = result.status
+            if (result.synchronized) tick.intValue += 1
+        }
+    }
+    val mutation = remember(scope, core, texts) {
+        NoteMutationContext(
+            scope = scope,
+            core = core,
+            texts = texts,
+            isBusy = { busy },
+            setBusy = { busy = it },
+            setNotice = { notice = it },
+            onMutated = { tick.intValue += 1; syncTick++ },
+        )
+    }
+    val noteActions = remember(core, texts, context, scope, mutation) {
+        NoteActionContext(
+            core = core,
+            texts = texts,
+            context = context,
+            scope = scope,
+            isBusy = { busy },
+            currentDraft = { editor },
+            setEditor = { editor = it },
+            setNotice = { notice = it },
+            mutate = noteMutationHandler(mutation),
+            setSyncStatus = { syncStatus = it },
+            retrySync = { syncTick++ },
+        )
+    }
+    val actions = createNoteActions(noteActions)
+    return NotesData(state, editor, notice, busy, syncStatus) to actions
 }
 
 @Composable

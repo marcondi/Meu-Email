@@ -117,6 +117,8 @@ mod navigation_bar_tests;
 #[cfg(test)]
 mod newer_account_tests;
 pub mod notes;
+#[cfg(test)]
+mod notes_tests;
 pub mod offline;
 #[cfg(test)]
 mod offline_tests;

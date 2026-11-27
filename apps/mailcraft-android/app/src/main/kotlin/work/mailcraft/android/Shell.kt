@@ -64,6 +64,8 @@ internal class ShellData(
     val people: PeopleData = PeopleData("", PeopleState.Loading),
     /** What the Tasks tab shows. */
     val tasks: TasksData = TasksData(TasksState.Loading),
+    /** What the Notes tab shows. */
+    val notes: NotesData = NotesData(NotesState.Loading),
     /** What the account screens draw besides the list of accounts. */
     val accountsUi: AccountsUi = AccountsUi(),
     /** What the Settings pages draw besides the accounts. */
@@ -128,6 +130,7 @@ internal class ShellActions(
 internal class OrganiserActions(
     val people: PeopleActions = PeopleActions(),
     val tasks: TasksActions = TasksActions(),
+    val notes: NotesActions = NotesActions(),
 )
 
 /** What the shell asks of the message being written: the composer's own, a new message, a line said. */
@@ -144,7 +147,7 @@ private val ExpandedWidth = 840.dp
 private const val LARGE_TEXT = 1.3f
 
 /**
- * The app's frame. Phone: a top bar with the ☰ button, the bottom bar of five tabs. Tablet (an
+ * The app's frame. Phone: a top bar with the ☰ button, the bottom bar of six tabs. Tablet (an
  * expanded window): the same top bar, and a rail of the five tabs down the side. On both the ☰
  * drawer holds the accounts with their folders, and Settings at its foot.
  */
@@ -323,6 +326,7 @@ private fun TabBody(
         Tab.Today -> TodayTab(texts, data, actions.organiser.tasks, modifier) { onNav(nav.select(it)) }
         Tab.People -> PeopleScreen(texts, data.people, actions.organiser.people, modifier)
         Tab.Tasks -> TasksScreen(texts, data.tasks, actions.organiser.tasks, modifier)
+        Tab.Notes -> NotesScreen(texts, data.notes, actions.organiser.notes, modifier)
     }
 }
 
@@ -499,4 +503,5 @@ private fun Tab.icon(): ImageVector = when (this) {
     Tab.Calendar -> AppIcons.Calendar
     Tab.People -> AppIcons.People
     Tab.Tasks -> AppIcons.Tasks
+    Tab.Notes -> AppIcons.Notes
 }

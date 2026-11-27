@@ -22,6 +22,7 @@ fn app() -> MailApp {
     let mut a = MailApp::new(Session::at(mailcraft_engine::sample::mailbox(NOW, 0), NOW, 0), Services::default());
     a.autosave = false;
     a.session.driver.set_auto_sync(false);
+    a.execute("notes.new", json!({"text": "Agent gate note", "deviceId": "pc"})).unwrap();
     a
 }
 
@@ -49,6 +50,7 @@ struct Ids {
     event2: Id,
     rule: Id,
     calendar: Id,
+    note: Id,
 }
 
 fn ids(a: &MailApp) -> Ids {
@@ -77,6 +79,7 @@ fn ids(a: &MailApp) -> Ids {
         event2: events[1],
         rule: mb.rules[0].id,
         calendar: mb.calendars.first().map(|c| c.id).unwrap_or(0),
+        note: *mb.notes.keys().next().unwrap(),
     }
 }
 
@@ -96,6 +99,7 @@ fn params(text: &str, i: &Ids) -> Value {
         ("$event", i.event),
         ("$rule", i.rule),
         ("$calendar", i.calendar),
+        ("$note", i.note),
     ] {
         t = t.replace(k, &v.to_string());
     }
@@ -148,6 +152,7 @@ const ROWS: &[(&str, &str, Setup)] = &[
     ("folder.empty", r#"{"id": $deleted}"#, Setup::None),
     ("mail.removeImportedDuplicates", "{}", Setup::None),
     ("people.delete", "{}", Setup::None),
+    ("notes.delete", r#"{"id": $note, "deviceId": "pc"}"#, Setup::None),
     ("people.merge", r#"{"keep": $contact, "others": [$contact2]}"#, Setup::None),
     ("tasks.delete", "{}", Setup::None),
     ("category.remove", r#"{"name": "Purple category"}"#, Setup::None),
@@ -418,6 +423,21 @@ fn a_yes_reaches_nothing_but_what_the_question_showed_for_every_command() {
     }
     assert!(not_asked.is_empty(), "these weren't asked about in the sample (give them params or a setup): {not_asked:#?}");
     assert!(reached.is_empty(), "a yes reached what the question didn't show: {reached:#?}");
+}
+
+#[test]
+fn a_note_changed_after_delete_was_asked_about_is_left_alone() {
+    let mut a = app();
+    let i = ids(&a);
+    let (now, rx) = agent(&mut a, "notes.delete", json!({"id": i.note, "deviceId": "pc"}));
+    assert!(now.is_none(), "asked: {now:?}");
+    a.execute("notes.edit", json!({"id": i.note, "text": "Changed after the question", "deviceId": "pc"})).unwrap();
+    answer(&mut a, true);
+    let result = rx.try_recv().unwrap();
+    assert_eq!(result["ok"], false, "the changed note is not deleted: {result}");
+    let note = a.session.mailbox.notes.get(&i.note).unwrap();
+    assert!(!note.deleted);
+    assert_eq!(note.text, "Changed after the question");
 }
 
 #[test]

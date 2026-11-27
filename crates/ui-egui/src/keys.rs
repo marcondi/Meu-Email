@@ -659,6 +659,7 @@ fn module_of(id: &str) -> Option<Module> {
         "calendar" => Some(Module::Calendar),
         "people" => Some(Module::People),
         "tasks" => Some(Module::Tasks),
+        "notes" => Some(Module::Notes),
         _ => None,
     }
 }
